@@ -65,7 +65,7 @@
       display: flex; align-items: center; gap: 10px;
       background: var(--surface); border: 1px solid #2e2e2e;
       border-radius: 100px; padding: 10px 20px;
-      flex: 1; max-width: 380px;
+      flex: 1; max-width: 500px;
       transition: border-color var(--transition), box-shadow var(--transition);
     }
     .search-wrap:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(245,200,66,.15); }
@@ -75,7 +75,7 @@
     .sort-select {
       background: var(--surface); border: 1px solid #2e2e2e;
       color: var(--text); font-family: 'DM Sans', sans-serif; font-size: .9rem;
-      padding: 11px 18px; border-radius: 100px; cursor: pointer; outline: none;
+      padding: 11px 10px; border-radius: 100px; cursor: pointer; outline: none;
       transition: border-color var(--transition);
     }
     .sort-select:hover, .sort-select:focus { border-color: var(--accent); }
@@ -125,7 +125,12 @@
     .badge-new { position: absolute; top: 14px; left: 14px; z-index: 4; background: var(--accent); color: #000; font-size: .65rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; }
     .img-overlay { position: absolute; inset: 0; z-index: 3; background: linear-gradient(to top, rgba(0,0,0,.45) 0%, transparent 55%); opacity: 0; transition: opacity var(--transition); pointer-events: none; }
     .card:hover .img-overlay { opacity: 1; }
-
+    /*Control de descuento*/
+    .badge-disc { position: absolute; top: 35px; right: 14px; z-index: 4;
+    background: #ff4d6d; color: #fff;
+    font-size: .85rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 100px;
+    }
     .photo-count { position: absolute; top: 12px; right: 12px; z-index: 4; background: rgba(0,0,0,.6); color: #fff; font-size: .7rem; font-weight: 600; letter-spacing: .04em; padding: 3px 9px; border-radius: 100px; display: none; }
     .carousel:not(.single) .photo-count { display: block; }
 
@@ -246,7 +251,7 @@
 </div>
 
 <footer>
-  Edita <code> productos</code> en <code>index.html</code> · Pon tus fotos en la carpeta <code>imagenes/</code>
+  Todos los modelos están sujetos a cambios y disponibilidad.
 </footer>
 
 <script>
@@ -364,9 +369,9 @@ const productos = [
   {
     id: "018",
     imagenes: [
-      "imagenes/adidas/xplr/Adidas_XPLR.jpg",
-      "imagenes/adidas/xplr/Adidas_XPLR_b.jpg",
-      "imagenes/adidas/xplr/Adidas_XPLR_c.jpg"
+      "imagenes/adidas/xplr/Adidas_XPLR_Negro.jpg",
+      "imagenes/adidas/xplr/Adidas_XPLR_Negro_b.jpg",
+      "imagenes/adidas/xplr/Adidas_XPLR_Negro_c.jpg"
     ],
     nombre: "Adidas XPLR Negros",
     precio: 685,
@@ -382,15 +387,148 @@ const productos = [
       "imagenes/nike/af1/AF1_Blanco_1_d.jpg",
       "imagenes/nike/af1/AF1_Blanco_1_e.jpg"
     ],
-    nombre: "Tenis Air Force One Blanco Piel 1:1",
+    nombre: "Air Force One Blanco Piel 1:1",
     precio: 1219,
     moneda: "$",
     nuevo: true
   },
+  {
+    id: "90",
+    imagenes: [
+      "imagenes/nike/air_max/Air_Max_Black.jpg",
+      "imagenes/nike/air_max/Air_Max_Black_b.jpg",
+      "imagenes/nike/air_max/Air_Max_Black_c.jpg"
+    ],
+    nombre: "Nike Air Max Negros",
+    precio: 755,
+    moneda: "$",
+    nuevo: false
+  },
+  {
+    id: "018",
+    imagenes: [
+      "imagenes/adidas/xplr/Adidas_XPLR_Marino.jpg",
+      "imagenes/adidas/xplr/Adidas_XPLR_Marino_b.jpg",
+      "imagenes/adidas/xplr/Adidas_XPLR_Marino_c.jpg"
+    ],
+    nombre: "Adidas XPLR Azul Marino",
+    precio: 685,
+    moneda: "$",
+    nuevo: false
+  },
+  {
+    id: "Retro 1",
+    imagenes: [
+      "imagenes/nike/air_jordan/Nike_Air_Jordan_Mid_Grey_Green.jpg",
+      "imagenes/nike/air_jordan/Nike_Air_Jordan_Mid_Grey_Green_b.jpg",
+      "imagenes/nike/air_jordan/Nike_Air_Jordan_Mid_Grey_Green_c.jpg"
+    ],
+    nombre: "Air Jordan 1 Gris & Verde",
+    precio: 1000,
+    moneda: "$",
+    nuevo: false
+  },
+  {
+    id: "275",
+    imagenes: [
+      "imagenes/nike/af1/AF1_Black_White.jpg",
+      "imagenes/nike/af1/AF1_Black_White_b.jpg",
+      "imagenes/nike/af1/AF1_Black_White_c.jpg"
+    ],
+    nombre: "Air Force One Negro & Blanco",
+    precio: 689,
+    moneda: "$",
+    nuevo: false
+  },
+  {
+    id: "420",
+    imagenes: [
+      "imagenes/nike/af1/AF1_Black_White_2.jpg",
+      "imagenes/nike/af1/AF1_Black_White_2_b.jpg",
+      "imagenes/nike/af1/AF1_Black_White_2_c.jpg"
+    ],
+    nombre: "Air Force One Negro & Blanco [AIR]",
+    precio: 689,
+    moneda: "$",
+    nuevo: false
+  },
+  {
+    id: "",
+    imagenes: [
+      "imagenes/adidas/campus/Adidas_Campus_Grey.jpg",
+      "imagenes/adidas/campus/Adidas_Campus_Grey_b.jpg",
+      "imagenes/adidas/campus/Adidas_Campus_Grey_c.jpg"
+    ],
+    nombre: "Adidas Campus 00s Gris",
+    precio: 697,
+    moneda: "$",
+    nuevo: false,
+    disc: true
+  },
+  {
+    id: "",
+    imagenes: [
+      "imagenes/adidas/campus/Adidas_Campus_Black.jpg",
+      "imagenes/adidas/campus/Adidas_Campus_Black_b.jpg",
+      "imagenes/adidas/campus/Adidas_Campus_Black_c.jpg"
+    ],
+    nombre: "Adidas Campus 00s Negro",
+    precio: 697,
+    moneda: "$",
+    nuevo: false
+  },
+  {
+    id: "",
+    imagenes: [
+      "imagenes/adidas/superstar/Adidas_SuperStar_Green.jpg",
+      "imagenes/adidas/superstar/Adidas_SuperStar_Green_b.jpg",
+      "imagenes/adidas/superstar/Adidas_SuperStar_Green_c.jpg"
+    ],
+    nombre: "Adidas SuperStar Verdes",
+    precio: 667,
+    moneda: "$",
+    nuevo: true
+  },
+  {
+    id: "270",
+    imagenes: [
+      "imagenes/nike/af1/AF1_Black_White_JustDoIt.jpg",
+      "imagenes/nike/af1/AF1_Black_White_JustDoIt_b.jpg",
+      "imagenes/nike/af1/AF1_Black_White_JustDoIt_c.jpg"
+    ],
+    nombre: "Nike Air Force One Blanco & Negro [Just Do It]",
+    precio: 689,
+    moneda: "$",
+    nuevo: false
+  },
+  {
+    id: "025",
+    imagenes: [
+      "imagenes/nike/zoom/Nike_Air_Zoom.jpg",
+      "imagenes/nike/zoom/Nike_Air_Zoom_b.jpg",
+      "imagenes/nike/zoom/Nike_Air_Zoom_c.jpg"
+    ],
+    nombre: "Nike Air Zoom",
+    precio: 645,
+    moneda: "$",
+    nuevo: true
+  },
+  {
+    id: "175",
+    imagenes: [
+      "imagenes/vans/old_school/Vans_Old_School_Black.jpg",
+      "imagenes/vans/old_school/Vans_Old_School_Black_b.jpg",
+      "imagenes/vans/old_school/Vans_Old_School_Black_c.jpg"
+    ],
+    nombre: "Vans Old School Negro",
+    precio: 615,
+    moneda: "$",
+    nuevo: true,
+    disc: true
+  },
 
 
-
-
+  
   // ── Agrega más productos aquí ──────────────────────
   // {
   //   imagenes: ["imagenes/foto1.jpg", "imagenes/foto2.jpg"],
@@ -461,6 +599,7 @@ function renderCards(lista){
         <button class="carousel-btn next" onclick="cardSlide(${idx},1,event)"><span class="material-icons-round">chevron_right</span></button>
         <div class="carousel-dots" id="dots-${idx}">${dots}</div>
         ${p.nuevo?'<span class="badge-new">Nuevo</span>':''}
+        ${p.disc ?'<span class="badge-disc">%OFF</span>':''}
         <span class="photo-count" id="counter-${idx}">1/${imgs.length}</span>
         <div class="img-overlay"></div>
         <button class="quick-btn" onclick="event.stopPropagation();openModal(${idx})">
