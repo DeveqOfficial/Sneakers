@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Catálogo de Artículos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:        #0d0d0d38;
+      --surface:   #1a1a1a;
+      --surface2:  #242424;
+      --accent:    #f5c842;
+      --accent2:   #ff6b35;
+      --text:      #f0ede8;
+      --muted:     #888;
+      --radius:    18px;
+      --shadow:    0 8px 40px rgba(0,0,0,.55);
+      --transition: .3s cubic-bezier(.4,0,.2,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* FONDO */
+    .bg-blobs { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+    .blob { position: absolute; border-radius: 50%; filter: blur(90px); opacity: .18; animation: drift 14s ease-in-out infinite alternate; }
+    .blob:nth-child(1){ width:520px;height:520px;background:var(--accent); top:-120px;left:-100px; animation-duration:16s; }
+    .blob:nth-child(2){ width:400px;height:400px;background:var(--accent2);bottom:-80px;right:-80px; animation-duration:20s;animation-delay:-5s; }
+    .blob:nth-child(3){ width:300px;height:300px;background:#a259ff; top:40%;left:50%; animation-duration:18s;animation-delay:-8s; }
+    @keyframes drift { from{transform:translate(0,0) scale(1)} to{transform:translate(40px,30px) scale(1.12)} }
+
+    /* HEADER */
+    header { position: relative; z-index: 10; padding: 60px 24px 40px; text-align: center; }
+    .logo-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--accent); color: #000;
+      font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+      padding: 7px 18px; border-radius: 100px; margin-bottom: 22px;
+      box-shadow: 0 0 24px rgba(245,200,66,.4);
+    }
+    .logo-badge .material-icons-round { font-size: 15px; }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem); font-weight: 900; line-height: 1.05; letter-spacing: -.02em;
+      background: linear-gradient(135deg, var(--text) 40%, var(--accent) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .subtitle { margin-top: 14px; color: var(--muted); font-size: 1.05rem; font-weight: 300; letter-spacing: .03em; }
+
+    /* CONTROLES */
+    .controls {
+      position: relative; z-index: 10;
+      display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; align-items: center;
+      padding: 0 24px 40px;
+    }
+    .search-wrap {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--surface); border: 1px solid #2e2e2e;
+      border-radius: 100px; padding: 10px 20px;
+      flex: 1; max-width: 380px;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .search-wrap:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(245,200,66,.15); }
+    .search-wrap .material-icons-round { color: var(--muted); font-size: 20px; }
+    .search-wrap input { background: none; border: none; outline: none; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: .95rem; width: 100%; }
+    .search-wrap input::placeholder { color: var(--muted); }
+    .sort-select {
+      background: var(--surface); border: 1px solid #2e2e2e;
+      color: var(--text); font-family: 'DM Sans', sans-serif; font-size: .9rem;
+      padding: 11px 18px; border-radius: 100px; cursor: pointer; outline: none;
+      transition: border-color var(--transition);
+    }
+    .sort-select:hover, .sort-select:focus { border-color: var(--accent); }
+
+    /* GRID */
+    .grid-wrapper { position: relative; z-index: 10; padding: 0 24px 80px; max-width: 1280px; margin: 0 auto; }
+    .count-label { font-size: .82rem; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 24px; }
+    .count-label span { color: var(--accent); font-weight: 600; }
+    #catalog { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 24px; }
+
+    /* TARJETA */
+    .card {
+      background: var(--surface); border-radius: var(--radius); overflow: hidden;
+      border: 1px solid #242424; box-shadow: var(--shadow);
+      display: flex; flex-direction: column;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      animation: cardIn .5s both;
+    }
+    @keyframes cardIn { from{opacity:0;transform:translateY(24px) scale(.97)} to{opacity:1;transform:translateY(0) scale(1)} }
+    .card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 20px 60px rgba(0,0,0,.7), 0 0 0 1px var(--accent); border-color: var(--accent); }
+
+    /* CARRUSEL */
+    .carousel { position: relative; overflow: hidden; aspect-ratio: 1/1; background: var(--surface2); cursor: pointer; }
+    .carousel-track { display: flex; height: 100%; transition: transform .42s cubic-bezier(.4,0,.2,1); }
+    .carousel-track img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; pointer-events: none; user-select: none; transition: filter .4s; }
+    .card:hover .carousel-track img { filter: brightness(1.07); }
+
+    .carousel-btn {
+      position: absolute; top: 50%; transform: translateY(-50%); z-index: 5;
+      background: rgba(0,0,0,.55); border: none; color: #fff;
+      width: 32px; height: 32px; border-radius: 50%;
+      display: grid; place-items: center; cursor: pointer;
+      opacity: 0; transition: opacity var(--transition), background var(--transition);
+    }
+    .carousel-btn .material-icons-round { font-size: 18px; }
+    .carousel-btn.prev { left: 8px; }
+    .carousel-btn.next { right: 8px; }
+    .carousel:hover .carousel-btn { opacity: 1; }
+    .carousel-btn:hover { background: rgba(245,200,66,.85); color: #000; }
+    .carousel.single .carousel-btn { display: none; }
+
+    .carousel-dots { position: absolute; bottom: 9px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; z-index: 5; }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.35); border: none; cursor: pointer; padding: 0; transition: background var(--transition), transform var(--transition); }
+    .dot.active { background: var(--accent); transform: scale(1.3); }
+    .carousel.single .carousel-dots { display: none; }
+
+    .badge-new { position: absolute; top: 14px; left: 14px; z-index: 4; background: var(--accent); color: #000; font-size: .65rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; }
+    .img-overlay { position: absolute; inset: 0; z-index: 3; background: linear-gradient(to top, rgba(0,0,0,.45) 0%, transparent 55%); opacity: 0; transition: opacity var(--transition); pointer-events: none; }
+    .card:hover .img-overlay { opacity: 1; }
+
+    .photo-count { position: absolute; top: 12px; right: 12px; z-index: 4; background: rgba(0,0,0,.6); color: #fff; font-size: .7rem; font-weight: 600; letter-spacing: .04em; padding: 3px 9px; border-radius: 100px; display: none; }
+    .carousel:not(.single) .photo-count { display: block; }
+
+    .quick-btn {
+      position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(10px);
+      opacity: 0; transition: opacity var(--transition), transform var(--transition);
+      background: var(--accent); color: #000; z-index: 6;
+      font-family: 'DM Sans', sans-serif; font-size: .8rem; font-weight: 700;
+      border: none; padding: 8px 20px; border-radius: 100px; cursor: pointer;
+      display: flex; align-items: center; gap: 6px; white-space: nowrap;
+    }
+    .card:hover .quick-btn { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .quick-btn .material-icons-round { font-size: 16px; }
+
+    /* CARD BODY */
+    .card-body { padding: 18px 20px 20px; display: flex; flex-direction: column; flex: 1; }
+    .card-name { font-size: 1rem; font-weight: 600; line-height: 1.35; margin-bottom: 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+    .price { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 700; color: var(--accent); }
+    .fav-btn { width: 38px; height: 38px; border-radius: 50%; background: var(--surface2); border: none; cursor: pointer; display: grid; place-items: center; transition: background var(--transition), transform var(--transition); color: var(--muted); }
+    .fav-btn:hover { background: #2e2e2e; transform: scale(1.12); }
+    .fav-btn.active { color: #ff4d6d; }
+    .fav-btn .material-icons-round { font-size: 18px; }
+
+    /* EMPTY */
+    .empty { grid-column: 1/-1; text-align: center; padding: 80px 20px; }
+    .empty .material-icons-round { font-size: 56px; color: #333; }
+    .empty p { color: var(--muted); margin-top: 14px; }
+
+    /* MODAL */
+    .modal-overlay { position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,.8); backdrop-filter: blur(8px); display: none; place-items: center; padding: 24px; }
+    .modal-overlay.open { display: grid; }
+    .modal { background: var(--surface); border-radius: 24px; max-width: 600px; width: 100%; overflow: hidden; box-shadow: 0 32px 80px rgba(0,0,0,.8); animation: modalIn .35s cubic-bezier(.4,0,.2,1); border: 1px solid #2e2e2e; }
+    @keyframes modalIn { from{opacity:0;transform:scale(.94) translateY(20px)} to{opacity:1;transform:scale(1) translateY(0)} }
+
+    .modal-carousel { position: relative; overflow: hidden; aspect-ratio: 16/9; background: #111; }
+    .modal-track { display: flex; height: 100%; transition: transform .42s cubic-bezier(.4,0,.2,1); }
+    .modal-track img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+    .modal-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,.6); border: none; color: #fff; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; cursor: pointer; z-index: 5; transition: background var(--transition); }
+    .modal-btn:hover { background: var(--accent); color: #000; }
+    .modal-btn .material-icons-round { font-size: 20px; }
+    .modal-btn.prev { left: 12px; }
+    .modal-btn.next { right: 12px; }
+    .modal-btn.hidden { display: none; }
+    .modal-dots { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 5; }
+    .modal-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.4); border: none; cursor: pointer; padding: 0; transition: background var(--transition), transform var(--transition); }
+    .modal-dot.active { background: var(--accent); transform: scale(1.3); }
+
+    .modal-body { padding: 24px 28px 28px; }
+    .modal-name { font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700; margin-bottom:10px; }
+    .modal-price { font-family:'Playfair Display',serif; font-size:2rem; color:var(--accent); font-weight:700; margin-bottom:22px; }
+    .modal-close { display:block; width:100%; background:var(--accent); color:#000; border:none; border-radius:100px; font-family:'DM Sans',sans-serif; font-weight:700; font-size:.95rem; padding:14px; cursor:pointer; transition:opacity var(--transition); }
+    .modal-close:hover { opacity:.85; }
+
+    footer { position:relative; z-index:10; text-align:center; padding:24px; font-size:.8rem; color:#444; border-top:1px solid #1e1e1e; }
+
+    @media(max-width:600px){
+      h1 { font-size: 2.4rem; }
+      #catalog { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
+      .modal-body { padding: 16px 18px 20px; }
+      .modal-name { font-size: 1.3rem; }
+      .modal-price { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="bg-blobs">
+  <div class="blob"></div><div class="blob"></div><div class="blob"></div>
+</div>
+
+<header>
+  <div class="logo-badge">
+    <span class="material-icons-round">storefront</span>
+    Catálogo Oficial
+  </div>
+  <h1>Sneakers & Más</h1>
+  <p class="subtitle">Encuentra los mejores artículos al mejor precio $</p>
+</header>
+
+<div class="controls">
+  <div class="search-wrap">
+    <span class="material-icons-round">search</span>
+    <input id="searchInput" type="text" placeholder="Buscar artículo..." autocomplete="off"/>
+  </div>
+  <select class="sort-select" id="sortSelect">
+    <option value="default">Orden original</option>
+    <option value="asc">Precio: menor a mayor</option>
+    <option value="desc">Precio: mayor a menor</option>
+    <option value="name">Nombre A–Z</option>
+  </select>
+</div>
+
+<div class="grid-wrapper">
+  <p class="count-label">Mostrando <span id="countNum">0</span> artículos</p>
+  <div id="catalog"></div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-carousel">
+      <div class="modal-track" id="modalTrack"></div>
+      <button class="modal-btn prev" id="modalPrev" onclick="modalSlide(-1)">
+        <span class="material-icons-round">chevron_left</span>
+      </button>
+      <button class="modal-btn next" id="modalNext" onclick="modalSlide(1)">
+        <span class="material-icons-round">chevron_right</span>
+      </button>
+      <div class="modal-dots" id="modalDots"></div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-name" id="modalName"></div>
+      <div class="modal-price" id="modalPrice"></div>
+      <button class="modal-close" onclick="closeModal()">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Edita <code> productos</code> en <code>index.html</code> · Pon tus fotos en la carpeta <code>imagenes/</code>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════════════
+   ★  AQUÍ AGREGAS TUS PRODUCTOS
+
+   Cada producto puede tener UNA o VARIAS fotos en "imagenes".
+   Si solo tiene una foto, de todas formas ponla dentro del array.
+
+   Campos:
+     imagenes → array de rutas de imagen (local o URL)
+     nombre   → nombre del artículo
+     precio   → número sin símbolo
+     moneda   → símbolo de moneda (opcional, default "$")
+     nuevo    → true muestra etiqueta "NUEVO", false no la muestra
+═══════════════════════════════════════════════════════ */
+const productos = [
+  {
+    id: "270",
+    imagenes: [
+      "imagenes/nike/af1/AF1_White.jpg",
+      "imagenes/nike/af1/AF1_White_b.jpg",
+      "imagenes/nike/af1/AF1_White_c.jpg"
+    ],
+    nombre: "Nike Air Force One",
+    precio: 675,
+    moneda: "$",
+    nuevo: true
+  },
+  {
+    id: "",
+    imagenes: [
+      "imagenes/nike/dunk/Dunk_Negro.jpg",
+      "imagenes/nike/dunk/Dunk_Negro_b.jpg",
+      "imagenes/nike/dunk/Dunk_Negro_c.jpg"
+    ],
+    nombre: "Nike Dunke Negro",
+    precio: 785,
+    moneda: "$",
+    nuevo: false
+  },
+  {
+    id: "",
+    imagenes: [
+      "imagenes/adidas/samba/Samba_White_Black_Gray.jpg",
+      "imagenes/adidas/samba/Samba_White_Black_Gray_b.jpg",
+      "imagenes/adidas/samba/Samba_White_Black_Gray_c.jpg"
+    ],
+    nombre: "Adidas Samba Blanco Negro & Gris",
+    precio: 755,
+    moneda: "$",
+    nuevo: false
+  },
+  {
+    id: "",
+    imagenes: [
+      "imagenes/nike/travis/Air_Jordan_1_Travis_Low_Fragment_Blue_White.jpg",
+      "imagenes/nike/travis/Air_Jordan_1_Travis_Low_Fragment_Blue_White_b.jpg",
+      "imagenes/nike/travis/Air_Jordan_1_Travis_Low_Fragment_Blue_White_c.jpg"
+    ],
+    nombre: "Travis Scott x Air Jordan 1",
+    precio: 887,
+    moneda: "$",
+    nuevo: true
+  },
+  {
+    id: "520",
+    imagenes: [
+      "imagenes/skechers/Skechers_Negro_Fiusha.jpg",
+      "imagenes/skechers/Skechers_Negro_Fiusha_b.jpg",
+      "imagenes/skechers/Skechers_Negro_Fiusha_c.jpg"
+    ],
+    nombre: "Skechers Negro-Fiusha",
+    precio: 659,
+    moneda: "$",
+    nuevo: false
+  },
+  {
+    id: "270",
+    imagenes: [
+      "imagenes/nike/af1/AF1_Negro.jpg",
+      "imagenes/nike/af1/AF1_Negro_b.jpg",
+      "imagenes/nike/af1/AF1_Negro_c.jpg"
+    ],
+    nombre: "Nike Air Force One Negros",
+    precio: 675,
+    moneda: "$",
+    nuevo: false
+  },
+  {
+    id: "90",
+    imagenes: [
+      "imagenes/nike/air_max/Air_Max_White_Black.jpg",
+      "imagenes/nike/air_max/Air_Max_White_Black_b.jpg",
+      "imagenes/nike/air_max/Air_Max_White_Black_c.jpg"
+    ],
+    nombre: "Nike Air Max",
+    precio: 755,
+    moneda: "$",
+    nuevo: false
+  },
+  {
+    id: "90",
+    imagenes: [
+      "imagenes/nike/af1/AF1_White_JustDoIt.jpg",
+      "imagenes/nike/af1/AF1_White_JustDoIt_b.jpg",
+      "imagenes/nike/af1/AF1_White_JustDoIt_c.jpg"
+    ],
+    nombre: "Nike Air Force One Just Do It",
+    precio: 689,
+    moneda: "$",
+    nuevo: false
+  },
+// página 2:
+  {
+    id: "018",
+    imagenes: [
+      "imagenes/adidas/xplr/Adidas_XPLR.jpg",
+      "imagenes/adidas/xplr/Adidas_XPLR_b.jpg",
+      "imagenes/adidas/xplr/Adidas_XPLR_c.jpg"
+    ],
+    nombre: "Adidas XPLR Negros",
+    precio: 685,
+    moneda: "$",
+    nuevo: false
+  },
+  {
+    id: "",
+    imagenes: [
+      "imagenes/nike/af1/AF1_Blanco_1.jpg",
+      "imagenes/nike/af1/AF1_Blanco_1_b.jpg",
+      "imagenes/nike/af1/AF1_Blanco_1_c.jpg",
+      "imagenes/nike/af1/AF1_Blanco_1_d.jpg",
+      "imagenes/nike/af1/AF1_Blanco_1_e.jpg"
+    ],
+    nombre: "Tenis Air Force One Blanco Piel 1:1",
+    precio: 1219,
+    moneda: "$",
+    nuevo: true
+  },
+
+
+
+
+  // ── Agrega más productos aquí ──────────────────────
+  // {
+  //   imagenes: ["imagenes/foto1.jpg", "imagenes/foto2.jpg"],
+  //   nombre: "Nombre del Producto",
+  //   precio: 100,
+  //   moneda: "$",
+  //   nuevo: false
+  // },
+];
+
+/* ════════════════════════════════════════
+   LÓGICA — no necesitas modificar esto
+════════════════════════════════════════ */
+const PLACEHOLDER = 'data:image/svg+xml,' + encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><rect fill="#242424" width="400" height="400"/><text x="200" y="215" font-family="sans-serif" font-size="64" fill="#444" text-anchor="middle">📦</text></svg>'
+);
+
+let favoritos = new Set(JSON.parse(localStorage.getItem('favs') || '[]'));
+function saveFavs(){ localStorage.setItem('favs', JSON.stringify([...favoritos])); }
+function fmt(p, m='$'){ return m + p.toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2}); }
+
+const cardState = {};
+
+function cardSlide(idx, dir, e){
+  if(e) e.stopPropagation();
+  const imgs = productos[idx].imagenes || [];
+  cardState[idx] = ((cardState[idx]||0) + dir + imgs.length) % imgs.length;
+  const track = document.getElementById('track-'+idx);
+  if(track) track.style.transform = 'translateX(-'+(cardState[idx]*100)+'%)';
+  document.querySelectorAll('#dots-'+idx+' .dot').forEach((d,i)=>d.classList.toggle('active',i===cardState[idx]));
+  const counter = document.getElementById('counter-'+idx);
+  if(counter) counter.textContent = (cardState[idx]+1)+'/'+imgs.length;
+}
+
+function goCardDot(idx, slide, e){
+  if(e) e.stopPropagation();
+  const imgs = productos[idx].imagenes || [];
+  cardState[idx] = slide;
+  const track = document.getElementById('track-'+idx);
+  if(track) track.style.transform = 'translateX(-'+(slide*100)+'%)';
+  document.querySelectorAll('#dots-'+idx+' .dot').forEach((d,i)=>d.classList.toggle('active',i===slide));
+  const counter = document.getElementById('counter-'+idx);
+  if(counter) counter.textContent = (slide+1)+'/'+imgs.length;
+}
+
+function renderCards(lista){
+  const cat = document.getElementById('catalog');
+  document.getElementById('countNum').textContent = lista.length;
+  if(!lista.length){
+    cat.innerHTML='<div class="empty"><span class="material-icons-round">search_off</span><p>No se encontraron artículos.</p></div>';
+    return;
+  }
+  cat.innerHTML = lista.map((p,i)=>{
+    const idx = productos.indexOf(p);
+    const imgs = (p.imagenes && p.imagenes.length) ? p.imagenes : [PLACEHOLDER];
+    const single = imgs.length===1;
+    if(cardState[idx]==null) cardState[idx]=0;
+    const isFav = favoritos.has(idx);
+
+    const trackImgs = imgs.map(src=>`<img src="${src}" alt="${p.nombre}" onerror="this.src='${PLACEHOLDER}'">`).join('');
+    const dots = imgs.map((_,di)=>`<button class="dot${di===0?' active':''}" onclick="goCardDot(${idx},${di},event)"></button>`).join('');
+
+    return `
+    <div class="card" style="animation-delay:${i*60}ms" onclick="openModal(${idx})">
+      <div class="carousel${single?' single':''}">
+        <div class="carousel-track" id="track-${idx}">${trackImgs}</div>
+        <button class="carousel-btn prev" onclick="cardSlide(${idx},-1,event)"><span class="material-icons-round">chevron_left</span></button>
+        <button class="carousel-btn next" onclick="cardSlide(${idx},1,event)"><span class="material-icons-round">chevron_right</span></button>
+        <div class="carousel-dots" id="dots-${idx}">${dots}</div>
+        ${p.nuevo?'<span class="badge-new">Nuevo</span>':''}
+        <span class="photo-count" id="counter-${idx}">1/${imgs.length}</span>
+        <div class="img-overlay"></div>
+        <button class="quick-btn" onclick="event.stopPropagation();openModal(${idx})">
+          <span class="material-icons-round">visibility</span> Ver detalle
+        </button>
+      </div>
+      <div class="card-body">
+        <div class="card-name">${p.nombre}</div>
+        <div class="card-footer">
+          <div class="price">${fmt(p.precio,p.moneda||'$')}</div>
+          <button class="fav-btn${isFav?' active':''}" onclick="toggleFav(event,${idx})" title="Favorito">
+            <span class="material-icons-round">${isFav?'favorite':'favorite_border'}</span>
+          </button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function getFiltered(){
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  const sort = document.getElementById('sortSelect').value;
+  let lista = productos.filter(p=>p.nombre.toLowerCase().includes(q));
+  if(sort==='asc')  lista=[...lista].sort((a,b)=>a.precio-b.precio);
+  if(sort==='desc') lista=[...lista].sort((a,b)=>b.precio-a.precio);
+  if(sort==='name') lista=[...lista].sort((a,b)=>a.nombre.localeCompare(b.nombre));
+  return lista;
+}
+function refresh(){ renderCards(getFiltered()); }
+document.getElementById('searchInput').addEventListener('input', refresh);
+document.getElementById('sortSelect').addEventListener('change', refresh);
+
+function toggleFav(e,idx){
+  e.stopPropagation();
+  favoritos.has(idx)?favoritos.delete(idx):favoritos.add(idx);
+  saveFavs(); refresh();
+}
+
+/* ── Modal ── */
+let modalIdx=0, modalCurrent=0;
+
+function openModal(idx){
+  modalIdx=idx; modalCurrent=0;
+  const p=productos[idx];
+  const imgs=(p.imagenes&&p.imagenes.length)?p.imagenes:[PLACEHOLDER];
+  document.getElementById('modalName').textContent=p.nombre;
+  document.getElementById('modalPrice').textContent=fmt(p.precio,p.moneda||'$');
+
+  const track=document.getElementById('modalTrack');
+  track.style.transition='none';
+  track.style.transform='translateX(0)';
+  track.innerHTML=imgs.map(src=>`<img src="${src}" alt="${p.nombre}" onerror="this.src='${PLACEHOLDER}'">`).join('');
+
+  const dotsEl=document.getElementById('modalDots');
+  dotsEl.innerHTML=imgs.map((_,i)=>`<button class="modal-dot${i===0?' active':''}" onclick="goModalDot(${i})"></button>`).join('');
+
+  const single=imgs.length===1;
+  document.getElementById('modalPrev').classList.toggle('hidden',single);
+  document.getElementById('modalNext').classList.toggle('hidden',single);
+  dotsEl.style.display=single?'none':'flex';
+
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+function modalSlide(dir){
+  const imgs=(productos[modalIdx].imagenes||[PLACEHOLDER]);
+  modalCurrent=(modalCurrent+dir+imgs.length)%imgs.length;
+  const track=document.getElementById('modalTrack');
+  track.style.transition='transform .42s cubic-bezier(.4,0,.2,1)';
+  track.style.transform='translateX(-'+(modalCurrent*100)+'%)';
+  document.querySelectorAll('.modal-dot').forEach((d,i)=>d.classList.toggle('active',i===modalCurrent));
+}
+
+function goModalDot(i){
+  modalCurrent=i;
+  const track=document.getElementById('modalTrack');
+  track.style.transition='transform .42s cubic-bezier(.4,0,.2,1)';
+  track.style.transform='translateX(-'+(i*100)+'%)';
+  document.querySelectorAll('.modal-dot').forEach((d,j)=>d.classList.toggle('active',j===i));
+}
+
+function closeModal(){ document.getElementById('modalOverlay').classList.remove('open'); }
+
+document.getElementById('modalOverlay').addEventListener('click',function(e){ if(e.target===this) closeModal(); });
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape') closeModal();
+  if(e.key==='ArrowLeft')  modalSlide(-1);
+  if(e.key==='ArrowRight') modalSlide(1);
+});
+
+refresh();
+</script>
+</body>
+</html>
