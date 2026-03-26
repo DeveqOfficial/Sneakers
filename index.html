@@ -132,9 +132,9 @@
     font-size: .85rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
     padding: 4px 10px; border-radius: 100px;
     }
-    .badge-official { position: absolute; top: 40px; left: 10px; z-index: 4;
+    .badge-official { position: absolute; top: 40px; left: 14px; z-index: 4;
     background: #4dbeff; color: #fff;
-    font-size: .85rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+    font-size: .55rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
     padding: 4px 10px; border-radius: 100px;}
 
     .photo-count { position: absolute; top: 12px; right: 12px; z-index: 4; background: rgba(0,0,0,.6); color: #fff; font-size: .7rem; font-weight: 600; letter-spacing: .04em; padding: 3px 9px; border-radius: 100px; display: none; }
@@ -188,6 +188,8 @@
     .modal-dot.active { background: var(--accent); transform: scale(1.3); }
 
     .modal-body { padding: 10px 20px 14px; }
+    .modal-header-row {display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px;}
+    .modal-header-row .fav-btn { flex-shrink: 0; width: 46px; height: 46px; }
     .modal-name { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:700; margin-bottom:6px; }
     .modal-price { font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--accent); font-weight:700; margin-bottom:14px; }
     .modal-close { display:block; width:100%; background:var(--accent); color:#000; border:none; border-radius:100px; font-family:'DM Sans',sans-serif; font-weight:700; font-size:.95rem; padding:10px; cursor:pointer; transition:opacity var(--transition); }
@@ -201,6 +203,25 @@
       .card-name { font-size: .88rem; }
       .price { font-size: 1.15rem; }
       .card-body { padding: 12px 14px 14px; }
+    }
+    .wa-btn {
+      position: fixed; bottom: 28px; right: 28px; z-index: 50;
+      display: flex; align-items: center; gap: 10px;
+      background: #25d366; color: #fff;
+      font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: .95rem;
+      padding: 14px 22px; border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 6px 30px rgba(37,211,102,.45);
+      animation: waPop .4s cubic-bezier(.16,1,.3,1);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .wa-btn:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 10px 40px rgba(37,211,102,.6);
+    }
+    @keyframes waPop {
+      from{ opacity:0; transform: translateY(20px) scale(.9); }
+      to{   opacity:1; transform: translateY(0)    scale(1);  }
     }
   </style>
 </head>
@@ -249,11 +270,18 @@
       <button class="modal-btn next" id="modalNext" onclick="modalSlide(1)">
         <span class="material-icons-round">chevron_right</span>
       </button>
-      <div class="modal-dots" id="modalDots"></div>
+    <div class="modal-dots" id="modalDots"></div>
     </div>
     <div class="modal-body">
-      <div class="modal-name" id="modalName"></div>
-      <div class="modal-price" id="modalPrice"></div>
+      <div class="modal-header-row">
+        <div>
+          <div class="modal-name" id="modalName"></div>
+          <div class="modal-price" id="modalPrice"></div>
+        </div>
+        <button class="fav-btn" id="modalFavBtn" onclick="toggleFavModal()">
+          <span class="material-icons-round">favorite_border</span>
+        </button>
+      </div>
       <button class="modal-close" onclick="closeModal()">Cerrar</button>
     </div>
   </div>
@@ -264,6 +292,7 @@
 </footer>
 
 <script>
+const WA_NUMBER = '524444069506';
 const productos = [
   {
     id: "270",
@@ -420,7 +449,7 @@ const productos = [
       "resources/img/nike/dunk/Nike_Dunk_White_Amber_b.jpg",
       "resources/img/nike/dunk/Nike_Dunk_White_Amber_c.jpg"
     ],
-    nombre: "Nike Dunk Blanco Amber",
+    nombre: "Nike Dunk Blanco Ámbar",
     precio: 785,
     moneda: "$",
     nuevo: false,
@@ -602,7 +631,7 @@ const productos = [
     nombre: "Adidas Campus 00s Gris",
     precio: 697,
     moneda: "$",
-    nuevo: false,
+    nuevo: true,
     disc: true
   },
   {
@@ -615,7 +644,8 @@ const productos = [
     nombre: "Adidas Campus 00s Negro",
     precio: 697,
     moneda: "$",
-    nuevo: false
+    nuevo: true,
+    disc: true
   },
   {
     id: "",
@@ -777,7 +807,7 @@ function renderCards(lista){
         <div class="carousel-dots" id="dots-${idx}">${dots}</div>
         ${p.nuevo?'<span class="badge-new">Nuevo</span>':''}
         ${p.disc ?'<span class="badge-disc">%OFF</span>':''}
-        ${p.official? '<span class="badge-official">Originales</span>':''}
+        ${p.official? '<span class="badge-official">Original</span>':''}
         <span class="photo-count" id="counter-${idx}">1/${imgs.length}</span>
         <div class="img-overlay"></div>
         <button class="quick-btn" onclick="event.stopPropagation();openModal(${idx})">
@@ -807,7 +837,30 @@ function getFiltered(){
   if(sort==='favs') lista=lista.filter((_,i)=>favoritos.has(productos.indexOf(lista[i])));
   return lista;
 }
-function refresh(){ renderCards(getFiltered()); }
+function refresh(){
+  renderCards(getFiltered());
+  updateWaBtn();
+}
+
+function updateWaBtn(){
+  const btn = document.getElementById('waBtn');
+  const esFavFiltro = document.getElementById('sortSelect').value === 'favs';
+  const tieneFavs = favoritos.size > 0;
+
+  if(esFavFiltro && tieneFavs){
+    // Armar mensaje con la lista de favoritos
+    const lista = [...favoritos].map(i => {
+      const p = productos[i];
+      return `• ${p.nombre} — ${p.moneda||'$'}${p.precio.toLocaleString('es-MX')}`;
+    }).join('\n');
+    const mensaje = `Hola, me interesan estos artículos:\n\n${lista}\n\n¿Me pueden dar más información?`;
+    btn.href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(mensaje)}`;
+    btn.style.display = 'flex';
+  } else {
+    btn.style.display = 'none';
+  }
+}
+
 document.getElementById('searchInput').addEventListener('input', refresh);
 document.getElementById('sortSelect').addEventListener('change', refresh);
 
@@ -822,6 +875,29 @@ function toggleFav(e,idx){
   btn.querySelector('.material-icons-round').textContent = isFav ? 'favorite' : 'favorite_border';
 
   // Si el filtro activo es "favoritos", sí hay que refrescar
+  if(document.getElementById('sortSelect').value === 'favs') refresh();
+}
+function toggleFavModal(){
+  favoritos.has(modalIdx) ? favoritos.delete(modalIdx) : favoritos.add(modalIdx);
+  saveFavs();
+
+  const isFav = favoritos.has(modalIdx);
+
+  // Actualiza botón del modal
+  const btn = document.getElementById('modalFavBtn');
+  btn.classList.toggle('active', isFav);
+  btn.querySelector('.material-icons-round').textContent = isFav ? 'favorite' : 'favorite_border';
+
+  // Actualiza botón de la tarjeta sin redibujar
+  const card = document.querySelector(`[onclick="openModal(${modalIdx})"]`);
+  if(card){
+    const favBtn = card.querySelector('.fav-btn');
+    if(favBtn){
+      favBtn.classList.toggle('active', isFav);
+      favBtn.querySelector('.material-icons-round').textContent = isFav ? 'favorite' : 'favorite_border';
+    }
+  }
+
   if(document.getElementById('sortSelect').value === 'favs') refresh();
 }
 
@@ -855,7 +931,11 @@ function openModal(idx){
     const modalCarousel = document.getElementById('modalTrack').parentElement;
     addSwipe(modalCarousel, ()=>modalSlide(1), ()=>modalSlide(-1));
   }
-}
+  const favBtn = document.getElementById('modalFavBtn');
+  const isFav = favoritos.has(idx);
+  favBtn.classList.toggle('active', isFav);
+  favBtn.querySelector('.material-icons-round').textContent = isFav ? 'favorite' : 'favorite_border';
+  }
 
 function modalSlide(dir){
   const imgs=(productos[modalIdx].imagenes||[PLACEHOLDER]);
@@ -901,5 +981,12 @@ function addSwipe(el, onLeft, onRight){
 
 refresh();
 </script>
+<a id="waBtn" class="wa-btn" target="_blank" style="display:none">
+  <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.556 4.112 1.528 5.836L.057 23.571a.75.75 0 00.92.92l5.735-1.471A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.725 9.725 0 01-4.989-1.374l-.358-.214-3.712.952.969-3.614-.234-.373A9.718 9.718 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
+  </svg>
+  Pedir por WhatsApp
+</a>
 </body>
 </html>
