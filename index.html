@@ -97,6 +97,8 @@
     }
     @keyframes cardIn { from{opacity:0;transform:translateY(24px) scale(.97)} to{opacity:1;transform:translateY(0) scale(1)} }
     .card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 20px 60px rgba(0,0,0,.7), 0 0 0 1px var(--accent); border-color: var(--accent); }
+    .card.official { border-color: #4dbeff; box-shadow: var(--shadow), 0 0 0 1px #4dbeff; }
+    .card.official:hover { box-shadow: 0 20px 60px rgba(39, 230, 135, 0.7), 0 0 0 2px #4dbeff; border-color: #4dbeff; }
 
     /* CARRUSEL */
     .carousel { position: relative; overflow: hidden; aspect-ratio: 1/1; background: var(--surface2); cursor: pointer; }
@@ -176,7 +178,7 @@
 
     .modal-carousel { position: relative; overflow: hidden; aspect-ratio: 16/9; background: #111; }
     .modal-track { display: flex; height: 100%; transition: transform .42s cubic-bezier(.4,0,.2,1); }
-    .modal-track img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+    .modal-track img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; pointer-events: auto; cursor: zoom-in; }
     .modal-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,.6); border: none; color: #fff; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; cursor: pointer; z-index: 5; transition: background var(--transition); }
     .modal-btn:hover { background: var(--accent); color: #000; }
     .modal-btn .material-icons-round { font-size: 20px; }
@@ -223,6 +225,40 @@
       from{ opacity:0; transform: translateY(20px) scale(.9); }
       to{   opacity:1; transform: translateY(0)    scale(1);  }
     }
+    .lightbox {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(0,0,0,.95);
+    display: none; place-items: center;
+    cursor: zoom-out;
+    }
+    .lightbox.open { display: grid; }
+    .lightbox img {
+      max-width: 92vw; max-height: 92vh;
+      object-fit: contain; border-radius: 8px;
+      animation: modalIn .4s cubic-bezier(.16,1,.3,1);
+      cursor: default;
+    }
+    .lightbox-close {
+      position: absolute; top: 16px; right: 16px;
+      background: rgba(255,255,255,.1); border: none; color: #fff;
+      width: 42px; height: 42px; border-radius: 50%;
+      display: grid; place-items: center; cursor: pointer; z-index: 5;
+      transition: background var(--transition);
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,.25); }
+    .lightbox-close .material-icons-round { font-size: 22px; }
+    .lightbox-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,.1); border: none; color: #fff;
+      width: 46px; height: 46px; border-radius: 50%;
+      display: grid; place-items: center; cursor: pointer; z-index: 5;
+      transition: background var(--transition);
+    }
+    .lightbox-btn:hover { background: var(--accent); color: #000; }
+    .lightbox-btn .material-icons-round { font-size: 26px; }
+    .lightbox-btn.prev { left: 16px; }
+    .lightbox-btn.next { right: 16px; }
+    .lightbox-btn.hidden { display: none; }
   </style>
 </head>
 <body>
@@ -302,9 +338,23 @@ const productos = [
       "resources/img/nike/af1/AF1_White_c.jpg"
     ],
     nombre: "Nike Air Force One",
-    precio: 675,
+    precio: 575,
     moneda: "$",
-    nuevo: true
+    nuevo: true,
+    disc: true
+  },
+  {
+    id: "",
+    imagenes: [
+      "resources/img/nike/travis/importado/Air_Jordan_1_Travis_Low_Fragment_Blue_White_Import.jpg",
+      "resources/img/nike/travis/importado/Air_Jordan_1_Travis_Low_Fragment_Blue_White_Import_b.jpg",
+      "resources/img/nike/travis/importado/Air_Jordan_1_Travis_Low_Fragment_Blue_White_Import_c.jpg"
+    ],
+    nombre: "Travis Scott x Air Jordan 1 Importado",
+    precio: 1557,
+    moneda: "$",
+    nuevo: true,
+    disc: false
   },
   {
     id: "",
@@ -318,6 +368,23 @@ const productos = [
     moneda: "$",
     nuevo: false
   },
+  {
+    id: "MLM-2588323869-tenis-mujer-skechers-lite-transpirables-textil-_JM?searchVariation=187481486258",
+    official: true,
+    imagenes: [
+      "resources/img/skechers/original/Skechers_Cherry.jpg",
+      "resources/img/skechers/original/Skechers_Cherry_b.jpg",
+      "resources/img/skechers/original/Skechers_Cherry_c.jpg",
+      "resources/img/skechers/original/Skechers_Cherry_d.jpg",
+      "resources/img/skechers/original/Skechers_Cherry_e.jpg",
+    ],
+    nombre: "Nike Court Vision Beige",
+    precio: 1129,
+    moneda: "$",
+    nuevo: true,
+    disc: true
+  }, 
+
   {
     id: "",
     imagenes: [
@@ -343,30 +410,6 @@ const productos = [
     nuevo: true
   },
   {
-    id: "520",
-    imagenes: [
-      "resources/img/skechers/Skechers_Negro_Fiusha.jpg",
-      "resources/img/skechers/Skechers_Negro_Fiusha_b.jpg",
-      "resources/img/skechers/Skechers_Negro_Fiusha_c.jpg"
-    ],
-    nombre: "Skechers Negro-Fiusha",
-    precio: 659,
-    moneda: "$",
-    nuevo: false
-  },
-  {
-    id: "270",
-    imagenes: [
-      "resources/img/nike/af1/AF1_Negro.jpg",
-      "resources/img/nike/af1/AF1_Negro_b.jpg",
-      "resources/img/nike/af1/AF1_Negro_c.jpg"
-    ],
-    nombre: "Nike Air Force One Negros",
-    precio: 675,
-    moneda: "$",
-    nuevo: false
-  },
-  {
     id: "90",
     imagenes: [
       "resources/img/nike/air_max/Air_Max_White_Black.jpg",
@@ -379,7 +422,7 @@ const productos = [
     nuevo: false
   },
   {
-    id: "90",
+    id: "",
     imagenes: [
       "resources/img/nike/af1/AF1_White_JustDoIt.jpg",
       "resources/img/nike/af1/AF1_White_JustDoIt_b.jpg",
@@ -389,19 +432,6 @@ const productos = [
     precio: 689,
     moneda: "$",
     nuevo: false
-  },
-  {
-    id: "",
-    imagenes: [
-      "resources/img/nike/air_jordan/Nike_Air_Jordan_Mid_Chicago_Red.jpg",
-      "resources/img/nike/air_jordan/Nike_Air_Jordan_Mid_Chicago_Red_b.jpg",
-      "resources/img/nike/air_jordan/Nike_Air_Jordan_Mid_Chicago_Red_c.jpg"
-    ],
-    nombre: "Nike Air Jordan Mid Chicago Red",
-    precio: 1000,
-    moneda: "$",
-    nuevo: false,
-    disc: false
   },
   {
     id: "270",
@@ -454,6 +484,53 @@ const productos = [
     moneda: "$",
     nuevo: false,
     disc: false
+  },
+  {
+    id: "tenis-para-mujer-adidas-duramo-rc2-w-correr-js4434/up/MLMU3436882800#polycard_client=search-desktop&search_layout=grid&position=42&type=product&tracking_id=449d7bcf-0821-4802-823f-7498b37945d5&wid=MLM5035178486&sid=search",
+    official: true,
+    imagenes: [
+      "resources/img/adidas/duramo/original/Adidas_Duramo_Ocean.jpg",
+      "resources/img/adidas/duramo/original/Adidas_Duramo_Ocean_b.jpg",
+      "resources/img/adidas/duramo/original/Adidas_Duramo_Ocean_c.jpg",
+      "resources/img/adidas/duramo/original/Adidas_Duramo_Ocean_d.jpg",
+      "resources/img/adidas/duramo/original/Adidas_Duramo_Ocean_e.jpg",
+    ],
+    nombre: "Adidas Ocean",
+    precio: 1359,
+    moneda: "$",
+    nuevo: true,
+    disc: true
+  },
+  {
+    id: "MLM-2502920243-tenis-de-mujer-adidas-grand-court-k-comodos-y-casuales-uso-diario-_JM?searchVariation=191805769321#polycard_client=search-desktop&searchVariation=191805769321&search_layout=grid&position=5&type=item&tracking_id=449d7bcf-0821-4802-823f-7498b37945d5",
+    official: true,
+    imagenes: [
+      "resources/img/adidas/court/original/Adidas_GCK_Pink.jpg",
+      "resources/img/adidas/court/original/Adidas_GCK_Pink_b.jpg",
+      "resources/img/adidas/court/original/Adidas_GCK_Pink_c.jpg",
+      "resources/img/adidas/court/original/Adidas_GCK_Pink_d.jpg",
+      "resources/img/adidas/court/original/Adidas_GCK_Pink_e.jpg",
+    ],
+    nombre: "Adidas Court Rosas",
+    precio: 933,
+    moneda: "$",
+    nuevo: true,
+    disc: true
+  },
+  {
+    id: "MLM-4426142654-tenis-adidas-casual-streettalk-hombre-jp8276-negro-_JM?searchVariation=187483877730#polycard_client=search-desktop&searchVariation=187483877730&search_layout=grid&position=8&type=item&tracking_id=449d7bcf-0821-4802-823f-7498b37945d5",
+    official: true,
+    imagenes: [
+      "resources/img/adidas/street/original/Adidas_Street.jpg",
+      "resources/img/adidas/street/original/Adidas_Street_b.jpg",
+      "resources/img/adidas/street/original/Adidas_Street_c.jpg",
+      "resources/img/adidas/street/original/Adidas_Street_d.jpg",
+    ],
+    nombre: "Adidas Street",
+    precio: 1100,
+    moneda: "$",
+    nuevo: true,
+    disc: true
   },
   {
     id: "",
@@ -531,6 +608,19 @@ const productos = [
     precio: 615,
     moneda: "$",
     nuevo: false,
+    disc: false
+  },
+  {
+    id: "",
+    imagenes: [
+      "resources/img/nike/air_jordan/Nike_Air_Jordan_Mid_Lila.jpg",
+      "resources/img/nike/air_jordan/Nike_Air_Jordan_Mid_Lila_b.jpg",
+      "resources/img/nike/air_jordan/Nike_Air_Jordan_Mid_Lila_c.jpg"
+    ],
+    nombre: "Nike Air Jordan Mid Lila",
+    precio: 1000,
+    moneda: "$",
+    nuevo: true,
     disc: false
   },
   {
@@ -701,12 +791,12 @@ const productos = [
     id: "ML",
     official: true,
     imagenes: [
-      "resources/img/nike/af1/Nike_Air_Force_One_White.jpg",
-      "resources/img/nike/af1/Nike_Air_Force_One_White_b.jpg",
-      "resources/img/nike/af1/Nike_Air_Force_One_White_c.jpg",
-      "resources/img/nike/af1/Nike_Air_Force_One_White_d.jpg",
-      "resources/img/nike/af1/Nike_Air_Force_One_White_e.jpg",
-      "resources/img/nike/af1/Nike_Air_Force_One_White_f.jpg"
+      "resources/img/nike/af1/original/Nike_Air_Force_One_White.jpg",
+      "resources/img/nike/af1/original/Nike_Air_Force_One_White_b.jpg",
+      "resources/img/nike/af1/original/Nike_Air_Force_One_White_c.jpg",
+      "resources/img/nike/af1/original/Nike_Air_Force_One_White_d.jpg",
+      "resources/img/nike/af1/original/Nike_Air_Force_One_White_e.jpg",
+      "resources/img/nike/af1/original/Nike_Air_Force_One_White_f.jpg"
     ],
     nombre: "Nike Air Force One Blanco",
     precio: 2700,
@@ -715,24 +805,112 @@ const productos = [
     disc: false
   },
   {
-    id: "ML",
+    id: "tenis-skechers-mujer-2110007bkpk-textil-negro/up/MLMU3809285919#polycard_client=search-desktop&search_layout=grid&position=1&type=product&tracking_id=94988087-669e-4673-ac6c-4048e174d0e6&wid=MLM4841778802&sid=search",
     official: true,
     imagenes: [
-      "resources/img/skechers/Skechers_Black_Pink.jpg",
-      "resources/img/skechers/Skechers_Black_Pink_b.jpg",
-      "resources/img/skechers/Skechers_Black_Pink_c.jpg",
-      "resources/img/skechers/Skechers_Black_Pink_d.jpg",
-      "resources/img/skechers/Skechers_Black_Pink_e.jpg",
+      "resources/img/skechers/original/Skechers_Black_Pink.jpg",
+      "resources/img/skechers/original/Skechers_Black_Pink_b.jpg",
+      "resources/img/skechers/original/Skechers_Black_Pink_c.jpg",
+      "resources/img/skechers/original/Skechers_Black_Pink_d.jpg",
+      "resources/img/skechers/original/Skechers_Black_Pink_e.jpg",
     ],
     nombre: "Skechers Negros Rosa P/Dama",
-    precio: 1250,
+    precio: 1169,
     moneda: "$",
     nuevo: true,
+    disc: true
+  },
+  {
+    id: "275",
+    official: false,
+    imagenes: [
+      "resources/img/nike/af1/AF1_White_Lila.jpg",
+      "resources/img/nike/af1/AF1_White_Lila_b.jpg",
+      "resources/img/nike/af1/AF1_White_Lila_c.jpg",
+    ],
+    nombre: "Nike AF1 Blaco Lila",
+    precio: 689,
+    moneda: "$",
+    nuevo: false,
     disc: false
   },
-
-
-
+  {
+    id: "270",
+    official: false,
+    imagenes: [
+      "resources/img/nike/af1/AF1_Coral.jpg",
+      "resources/img/nike/af1/AF1_Coral_b.jpg",
+      "resources/img/nike/af1/AF1_Coral_c.jpg",
+    ],
+    nombre: "Nike AF1 Coral Lila",
+    precio: 705,
+    moneda: "$",
+    nuevo: false,
+    disc: false
+  },
+  {
+    id: "",
+    official: false,
+    imagenes: [
+      "resources/img/nike/air_jordan/Nike_Air_Jordan_4_White_Grey.jpg",
+      "resources/img/nike/air_jordan/Nike_Air_Jordan_4_White_Grey_b.jpg",
+      "resources/img/nike/air_jordan/Nike_Air_Jordan_4_White_Grey_c.jpg",
+    ],
+    nombre: "Nike Air Jordan 4 Blanco Gris",
+    precio: 757,
+    moneda: "$",
+    nuevo: false,
+    disc: false
+  },
+  {
+    id: "MLM-1402410801-tenis-para-hombre-nike-court-vision-low-next-nature-_JM?searchVariation=174386428951#polycard_client=search-desktop&searchVariation=174386428951&search_layout=grid&position=1&type=item&tracking_id=2bbe91b2-ac0d-445d-bcba-59d0cee0f0bf",
+    official: true,
+    imagenes: [
+      "resources/img/nike/court/original/Nike_Court_Vision_Low.jpg",
+      "resources/img/nike/court/original/Nike_Court_Vision_Low_b.jpg",
+      "resources/img/nike/court/original/Nike_Court_Vision_Low_c.jpg",
+      "resources/img/nike/court/original/Nike_Court_Vision_Low_d.jpg",
+      "resources/img/nike/court/original/Nike_Court_Vision_Low_e.jpg",
+    ],
+    nombre: "Nike Court Vision Low Blanco",
+    precio: 1549,
+    moneda: "$",
+    nuevo: true,
+    disc: true
+  },
+  {
+    id: "MLM-2633348521-nike-revolution-8-tenis-grises-de-correr-para-hombre-_JM?searchVariation=194438328859#polycard_client=search-desktop&searchVariation=194438328859&search_layout=grid&position=44&type=item&tracking_id=24b588ce-0b6b-4e21-b0a9-9a4cb2b2a863",
+    official: true,
+    imagenes: [
+      "resources/img/nike/revolution/original/Nike_Revolution.jpg",
+      "resources/img/nike/revolution/original/Nike_Revolution_b.jpg",
+      "resources/img/nike/revolution/original/Nike_Revolution_c.jpg",
+      "resources/img/nike/revolution/original/Nike_Revolution_d.jpg",
+      "resources/img/nike/revolution/original/Nike_Revolution_e.jpg",
+      "resources/img/nike/court/original/Nike_Court_Vision_Low_e.jpg",
+    ],
+    nombre: "Nike Revolution",
+    precio: 1389,
+    moneda: "$",
+    nuevo: true,
+    disc: true
+  }, 
+  {
+    id: "MLM-4542222992-nike-court-vision-low-fl-tenis-beige-para-mujer-_JM?searchVariation=188214960168#polycard_client=search-desktop&searchVariation=188214960168&search_layout=grid&position=9&type=item&tracking_id=6f06de3c-8240-4ea1-91d3-bb86606e8ecd",
+    official: true,
+    imagenes: [
+      "resources/img/nike/court/original/Nike_Court_Vision_Low_Beige.jpg",
+      "resources/img/nike/court/original/Nike_Court_Vision_Low_Beige_b.jpg",
+      "resources/img/nike/court/original/Nike_Court_Vision_Low_Beige_c.jpg",
+      "resources/img/nike/court/original/Nike_Court_Vision_Low_Beige_d.jpg",
+      "resources/img/nike/court/original/Nike_Court_Vision_Low_e.jpg",
+    ],
+    nombre: "Nike Court Vision Beige",
+    precio: 1638,
+    moneda: "$",
+    nuevo: true,
+    disc: true
+  }, 
 
 
 
@@ -799,7 +977,7 @@ function renderCards(lista){
     const dots = imgs.map((_,di)=>`<button class="dot${di===0?' active':''}" onclick="goCardDot(${idx},${di},event)"></button>`).join('');
 
     return `
-    <div class="card" style="animation-delay:${i*60}ms" onclick="openModal(${idx})">
+    <div class="card${p.official?' official':''}" style="animation-delay:${i*60}ms" onclick="openModal(${idx})">
       <div class="carousel${single?' single':''}">
         <div class="carousel-track" id="track-${idx}">${trackImgs}</div>
         <button class="carousel-btn prev" onclick="cardSlide(${idx},-1,event)"><span class="material-icons-round">chevron_left</span></button>
@@ -859,8 +1037,7 @@ function updateWaBtn(){
   } else {
     btn.style.display = 'none';
   }
-}
-
+} 
 document.getElementById('searchInput').addEventListener('input', refresh);
 document.getElementById('sortSelect').addEventListener('change', refresh);
 
@@ -914,7 +1091,16 @@ function openModal(idx){
   const track=document.getElementById('modalTrack');
   track.style.transition='none';
   track.style.transform='translateX(0)';
-  track.innerHTML=imgs.map(src=>`<img src="${src}" alt="${p.nombre}" onerror="this.src='${PLACEHOLDER}'">`).join('');
+  track.innerHTML = imgs.map(src =>
+    `<img src="${src}" alt="${p.nombre}" onerror="this.src='${PLACEHOLDER}'">`
+  ).join('');
+  // Asignar onclick directamente al elemento DOM (evita problemas con el swipe)
+  Array.from(track.querySelectorAll('img')).forEach((img, i) => {
+    img.addEventListener('click', function(e){
+      e.stopPropagation();
+      openLightbox(imgs, i);
+    });
+  });
 
   const dotsEl=document.getElementById('modalDots');
   dotsEl.innerHTML=imgs.map((_,i)=>`<button class="modal-dot${i===0?' active':''}" onclick="goModalDot(${i})"></button>`).join('');
@@ -927,9 +1113,10 @@ function openModal(idx){
   document.getElementById('modalOverlay').classList.add('open');
 
   const imgs2 = (p.imagenes && p.imagenes.length) ? p.imagenes : [PLACEHOLDER];
-  if(imgs2.length > 1){
-    const modalCarousel = document.getElementById('modalTrack').parentElement;
+  const modalCarousel = document.getElementById('modalTrack').parentElement;
+  if(imgs2.length > 1 && !modalCarousel._swipeAdded){
     addSwipe(modalCarousel, ()=>modalSlide(1), ()=>modalSlide(-1));
+    modalCarousel._swipeAdded = true;
   }
   const favBtn = document.getElementById('modalFavBtn');
   const isFav = favoritos.has(idx);
@@ -963,12 +1150,12 @@ function closeModal(){
 }
 
 document.getElementById('modalOverlay').addEventListener('click',function(e){ if(e.target===this) closeModal(); });
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape') closeModal();
-  if(e.key==='ArrowLeft')  modalSlide(-1);
-  if(e.key==='ArrowRight') modalSlide(1);
+document.addEventListener('keydown', e=>{
+  if(e.key==='Escape'){ closeModal(); closeLightbox(); }
+  if(e.key==='ArrowLeft')  { modalSlide(-1); lbSlide(-1); }
+  if(e.key==='ArrowRight') { modalSlide(1);  lbSlide(1);  }
 });
-
+ 
 function addSwipe(el, onLeft, onRight){
   let startX = 0;
   el.addEventListener('touchstart', e=>{ startX = e.touches[0].clientX; }, {passive:true});
@@ -977,6 +1164,25 @@ function addSwipe(el, onLeft, onRight){
     if(Math.abs(diff) < 40) return; // ignora toques cortos
     diff > 0 ? onLeft() : onRight();
   }, {passive:true});
+}
+let lbImgs = [], lbCurrent = 0;
+ 
+function openLightbox(imgs, startIdx){
+  lbImgs = imgs; lbCurrent = startIdx;
+  document.getElementById('lightboxImg').src = imgs[startIdx];
+  const single = imgs.length <= 1;
+  document.getElementById('lbPrev').classList.toggle('hidden', single);
+  document.getElementById('lbNext').classList.toggle('hidden', single);
+  document.getElementById('lightbox').classList.add('open');
+}
+ 
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+}
+ 
+function lbSlide(dir){
+  lbCurrent = (lbCurrent + dir + lbImgs.length) % lbImgs.length;
+  document.getElementById('lightboxImg').src = lbImgs[lbCurrent];
 }
 
 refresh();
@@ -988,5 +1194,17 @@ refresh();
   </svg>
   Pedir por WhatsApp
 </a>
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">
+    <span class="material-icons-round">close</span>
+  </button>
+  <button class="lightbox-btn prev" id="lbPrev" onclick="event.stopPropagation();lbSlide(-1)">
+    <span class="material-icons-round">chevron_left</span>
+  </button>
+  <img id="lightboxImg" src="" alt="" onclick="event.stopPropagation()"/>
+  <button class="lightbox-btn next" id="lbNext" onclick="event.stopPropagation();lbSlide(1)">
+    <span class="material-icons-round">chevron_right</span>
+  </button>
+</div>
 </body>
 </html>
