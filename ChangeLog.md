@@ -1,17 +1,20 @@
-# Histórico de cambios
+# ⏱️ Histórico de cambios
 
-## V1.0.2   09-04-2026
-- Se agregan productos (originales)
-- Se implementó un nuevo comportamiento: Al dar click en la imagen del producto, se abre una ventana con la imagen completa.
+## 🗓️ 10-05-2026 &emsp; V1.1.0
+* ➕ Se separan los archivos css
 
-## V1.0.1   22-03-2026
-- Se agrega botón de favoritos en vista completa.
-- Se agrega botón de mensaje directo a WhatsApp.
-##
-## V1.0   22-03-2026
-- Se agregan artículos al catálogo.
-- Se agrega archivo CHANGELOG.md
-- Se agrega icono para la página
+## 🗓️ 09-04-2026 &emsp; V1.0.2 
+* ➕ Se agregan productos (originales)
+* ➕ Se implementó un nuevo comportamiento: Al dar click en la imagen del producto, se abre una ventana con la imagen completa.
+
+## 🗓️ 22-03-2026 &emsp; V1.0.1   
+* ➕ Se agrega botón de favoritos en vista completa.
+* ➕ Se agrega botón de mensaje directo a WhatsApp.
+
+## 🗓️ 22-03-2026 &emsp; V1.0
+* ➕ Se agregan artículos al catálogo.
+* ➕ Se agrega archivo CHANGELOG.md
+* ➕ Se agrega icono para la página
 ##
 
 > [!NOTE]
