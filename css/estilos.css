@@ -1,12 +1,13 @@
 :root {
-      --bg:        #0d0d0d38;
-      --surface:   #1a1a1a;
-      --surface2:  #242424;
-      --accent:    #f5c842;
-      --accent2:   #ff6b35;
-      --text:      #f0ede8;
-      --muted:     #888;
-      --radius:    18px;
+      --bg:        #edf7fcf5;
+      --surface:   #ffffff; /*Fondo de las tarjetas, barra de búsqueda y filtro*/
+      --surface2:  #242424; /*Fav*/
+      --accent:    #ffffff; /*Precio - catalogo - nuevo*/
+      --accent2:   #2bff2b; /*Color del fondo de abajo*/
+      --text:      #000000; /*fuente*/
+      --muted:     #888888; /*Contorno corazón*/
+      --price:     #7393a0; /*price*/
+      --radius:    6px;
       --shadow:    0 8px 40px rgba(0,0,0,.55);
       --transition: .3s cubic-bezier(.4,0,.2,1);
     }
@@ -72,18 +73,18 @@
     .sort-select:hover, .sort-select:focus { border-color: var(--accent); }
 
     /* GRID */
-    .grid-wrapper { position: relative; z-index: 10; padding: 0 24px 80px; max-width: 1280px; margin: 0 auto; }
+    .grid-wrapper { position: relative; z-index: 10; padding: 0 2px 80px; max-width: 1280px; margin: 0 auto; }
     .count-label { font-size: .82rem; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 24px; }
-    .count-label span { color: var(--accent); font-weight: 600; }
+    .count-label span { color: grey; font-weight: 600; }
     #catalog { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 24px; }
 
     /* TARJETA */
     .card {
       background: var(--surface); border-radius: var(--radius); overflow: hidden;
-      border: 1px solid #242424; box-shadow: var(--shadow);
+      border: 1px solid #e4e4e4; box-shadow: null;
       display: flex; flex-direction: column;
       transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-      animation: cardIn .5s both;
+      animation: cardIn .1s both;
     }
     @keyframes cardIn { from{opacity:0;transform:translateY(24px) scale(.97)} to{opacity:1;transform:translateY(0) scale(1)} }
     .card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 20px 60px rgba(0,0,0,.7), 0 0 0 1px var(--accent); border-color: var(--accent); }
@@ -115,19 +116,15 @@
     .dot.active { background: var(--accent); transform: scale(1.3); }
     .carousel.single .carousel-dots { display: none; }
 
-    .badge-new { position: absolute; top: 14px; left: 14px; z-index: 4; background: var(--accent); color: #000; font-size: .65rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; }
+    .badge-new { background: greenyellow; color: #000; font-size: .6rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; display: inline-block; }
     .img-overlay { position: absolute; inset: 0; z-index: 3; background: linear-gradient(to top, rgba(0,0,0,.45) 0%, transparent 55%); opacity: 0; transition: opacity var(--transition); pointer-events: none; }
     .card:hover .img-overlay { opacity: 1; }
     /*Control de descuento*/
-    .badge-disc { position: absolute; top: 35px; right: 14px; z-index: 4;
-    background: #ff4d6d; color: #fff;
-    font-size: .85rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-    padding: 4px 10px; border-radius: 100px;
-    }
-    .badge-official { position: absolute; top: 40px; left: 14px; z-index: 4;
-    background: #4dbeff; color: #fff;
-    font-size: .55rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-    padding: 4px 10px; border-radius: 100px;}
+    .badge-disc { background: #ff4d6d; color: #fff; font-size: .6rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; display: inline-block; }
+
+    .badge-official { background: #4dbeff; color: #fff; font-size: .6rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; display: inline-block; }
+    .card-badges { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
+
 
     .photo-count { position: absolute; top: 12px; right: 12px; z-index: 4; background: rgba(0,0,0,.6); color: #fff; font-size: .7rem; font-weight: 600; letter-spacing: .04em; padding: 3px 9px; border-radius: 100px; display: none; }
     .carousel:not(.single) .photo-count { display: block; }
@@ -145,9 +142,9 @@
 
     /* CARD BODY */
     .card-body { padding: 18px 20px 20px; display: flex; flex-direction: column; flex: 1; }
-    .card-name { font-size: 1rem; font-weight: 600; line-height: 1.35; margin-bottom: 10px; display: -webkit-box; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .card-name { font-size: 1.25rem; font-weight: 600; line-height: 1.35; margin-bottom: 10px; display: -webkit-box; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
     .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
-    .price { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 700; color: var(--accent); }
+    .price { font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 700; color: var(--price); }
     .fav-btn { width: 38px; height: 38px; border-radius: 50%; background: var(--surface2); border: none; cursor: pointer; display: grid; place-items: center; transition: background var(--transition), transform var(--transition); color: var(--muted); }
     .fav-btn:hover { background: #2e2e2e; transform: scale(1.12); }
     .fav-btn.active { color: #ff4d6d; }
@@ -183,7 +180,7 @@
     .modal-header-row {display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px;}
     .modal-header-row .fav-btn { flex-shrink: 0; width: 46px; height: 46px; }
     .modal-name { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:700; margin-bottom:6px; }
-    .modal-price { font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--accent); font-weight:700; margin-bottom:14px; }
+    .modal-price { font-family:'Playfair Display',serif; font-size:2rem; color:var(--price); font-weight:700; margin-bottom:14px; }
     .modal-close { display:block; width:100%; background:var(--accent); color:#000; border:none; border-radius:100px; font-family:'DM Sans',sans-serif; font-weight:700; font-size:.95rem; padding:10px; cursor:pointer; transition:opacity var(--transition); }
     .modal-close:hover { opacity:.85; }
 

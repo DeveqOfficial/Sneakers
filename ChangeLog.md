@@ -1,7 +1,13 @@
 # ⏱️ Histórico de cambios
 
+## 🗓️ 11-05-2026 &emsp; V1.2.0
+* ➕ Se separa el archivo js
+* ➕ Se rediseñan los colores principales de la página
+* ➕ Se modifican las etiquetas, ahora están en la tarjeta
+* ➕ Se rediseña la tarjeta del artículo 
+
 ## 🗓️ 10-05-2026 &emsp; V1.1.0
-* ➕ Se separan los archivos css
+* ➕ Se separa el archivos css
 
 ## 🗓️ 09-04-2026 &emsp; V1.0.2 
 * ➕ Se agregan productos (originales)
