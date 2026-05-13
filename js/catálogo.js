@@ -884,7 +884,7 @@ function renderCards(lista){
         <div class="img-overlay"></div>
         
       </div>
-      <<div class="card-body">
+      <div class="card-body">
         <div class="card-name">${p.nombre}</div>
         <div class="card-badges">
           ${p.nuevo?'<span class="badge-new">Nuevo</span>':''}
