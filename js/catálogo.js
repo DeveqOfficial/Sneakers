@@ -14,6 +14,21 @@ const productos = [
     disc: true
   },
   {
+    id: "https://www.mercadolibre.com.mx/tenis-skechers-bobs-mujer-10008mxlav-textil-morado/up/MLMU3920258868#polycard_client=search-desktop&be_origin=backend&search_layout=grid&position=32&type=product&tracking_id=aff8f6a1-1f90-4ce9-84f0-0cca4006e243&wid=MLM5222932608&sid=search",
+    official: true,
+    imagenes: [
+      "resources/img/skechers/original/bobs/Skechers_Purple.jpg",
+      "resources/img/skechers/original/bobs/Skechers_Purple_b.jpg",
+      "resources/img/skechers/original/bobs/Skechers_Purple_c.jpg",
+      "resources/img/skechers/original/bobs/Skechers_Purple_d.jpg",
+    ],
+    nombre: "Skechers Guinda",
+    precio: 1150,
+    moneda: "$",
+    nuevo: true,
+    disc: true
+  },
+  {
     id: "",
     imagenes: [
       "resources/img/nike/travis/importado/Air_Jordan_1_Travis_Low_Fragment_Blue_White_Import.jpg",
@@ -94,6 +109,21 @@ const productos = [
     precio: 887,
     moneda: "$",
     nuevo: false
+  },
+    {
+    id: "https://articulo.mercadolibre.com.mx/MLM-2399673323-tenis-mujer-skechers-entrenamiento-correr-transpirable-_JM?searchVariation=184600550312#is_advertising=true&searchVariation=184600550312&backend_model=search-backend&be_origin=backend&position=2&search_layout=grid&type=pad&tracking_id=aff8f6a1-1f90-4ce9-84f0-0cca4006e243&ad_domain=VQCATCORE_LST&ad_position=2&ad_click_id=MWE2MjJiN2QtOWE0OS00ODI1LWExZWUtZTZjNjRlMTg2NTNi",
+    official: true,
+    imagenes: [
+      "resources/img/skechers/original/Skechers_Grey.jpg",
+      "resources/img/skechers/original/Skechers_Grey_b.jpg",
+      "resources/img/skechers/original/Skechers_Grey_c.jpg",
+      "resources/img/skechers/original/Skechers_Grey_d.jpg",
+    ],
+    nombre: "Skechers Gris P/Dama",
+    precio: 1339,
+    moneda: "$",
+    nuevo: true,
+    disc: true
   },
   {
     id: "90",
@@ -201,21 +231,36 @@ const productos = [
     disc: true
   },
   {
-    id: "https://www.mercadolibre.com.mx/tenis-para-mujer-adidas-duramo-rc2-w-correr-js4434/up/MLMU3430224253#polycard_client=search-desktop&search_layout=grid&position=2&type=product&tracking_id=9deaf553-4eb3-4395-8e06-8937726d87cc&wid=MLM5035178492&sid=search",
+    id: "https://articulo.mercadolibre.com.mx/MLM-1387293600-tenis-hombre-casuales-york-team-polo-club-caballero-_JM#polycard_client=recommendations_vip-pads-up&reco_backend=recomm_platform_base_pads_ron_marketplace&reco_model=fallback_productos-promocionados&reco_client=vip-pads-up&reco_item_pos=0&reco_backend_type=low_level&reco_id=bf610e7b-19ef-49a0-999a-fca089adebeb&is_advertising=true&ad_domain=VIPDESKTOP_UP&ad_position=1&ad_click_id=MTc4YzY0YmEtNTM2Yy00MzJjLWExOTktMDI3MjI4OTgzOWNk",
     official: true,
     imagenes: [
-      "resources/img/adidas/duramo/original/Adidas_Duramo_Ocean.jpg",
-      "resources/img/adidas/duramo/original/Adidas_Duramo_Ocean_b.jpg",
-      "resources/img/adidas/duramo/original/Adidas_Duramo_Ocean_c.jpg",
-      "resources/img/adidas/duramo/original/Adidas_Duramo_Ocean_d.jpg",
-      "resources/img/adidas/duramo/original/Adidas_Duramo_Ocean_e.jpg",
+      "resources/img/polo/original/york_team/Polo_Club_York_Team.jpg",
+      "resources/img/polo/original/york_team/Polo_Club_York_Team_b.jpg",
+      "resources/img/polo/original/york_team/Polo_Club_York_Team_c.jpg",
     ],
-    nombre: "Adidas Ocean",
-    precio: 1359,
+    nombre: "Polo Club Gris Azul",
+    precio: 899,
     moneda: "$",
     nuevo: true,
     disc: true
   },
+
+//  {
+//    id: "https://www.mercadolibre.com.mx/tenis-para-mujer-adidas-duramo-rc2-w-correr-js4434/up/MLMU3430224253#polycard_client=search-desktop&search_layout=grid&position=2&type=product&tracking_id=9deaf553-4eb3-4395-8e06-8937726d87cc&wid=MLM5035178492&sid=search",
+//    official: true,
+//    imagenes: [
+//      "resources/img/adidas/duramo/original/Adidas_Duramo_Ocean.jpg",
+//      "resources/img/adidas/duramo/original/Adidas_Duramo_Ocean_b.jpg",
+//      "resources/img/adidas/duramo/original/Adidas_Duramo_Ocean_c.jpg",
+//      "resources/img/adidas/duramo/original/Adidas_Duramo_Ocean_d.jpg",
+//      "resources/img/adidas/duramo/original/Adidas_Duramo_Ocean_e.jpg",
+//    ],
+//    nombre: "Adidas Ocean",
+//    precio: 1359,
+//    moneda: "$",
+//    nuevo: true,
+//    disc: true
+//  },
 //  {
 //    id: "ttps://articulo.mercadolibre.com.mx/MLM-2502920243-tenis-de-mujer-adidas-grand-court-k-comodos-y-casuales-uso-diario-_JM?searchVariation=191805769321#polycard_client=search-desktop&searchVariation=191805769321&search_layout=grid&position=5&type=item&tracking_id=449d7bcf-0821-4802-823f-7498b37945d5",
 //    official: true,
@@ -354,6 +399,22 @@ const productos = [
     disc: true
   },
   {
+    id: "",
+    official: true,
+    imagenes: [
+      "resources/img/skechers/original/angeles/Skechers_Lila_LA.jpg",
+      "resources/img/skechers/original/angeles/Skechers_Lila_LA_b.jpg",
+      "resources/img/skechers/original/angeles/Skechers_Lila_LA_c.jpg",
+      "resources/img/skechers/original/angeles/Skechers_Lila_LA_d.jpg",
+      "resources/img/skechers/original/angeles/Skechers_Lila_LA_e.jpg",
+    ],
+    nombre: "Skechers LA Lila",
+    precio: 2000,
+    moneda: "$",
+    nuevo: true,
+    disc: true
+  },
+  {
     id: "841",
     imagenes: [
       "resources/img/nike/af1/AF1_Mid_Black.jpg",
@@ -447,6 +508,22 @@ const productos = [
     disc: true
   },
   {
+    id: "https://www.amazon.com.mx/PUMA-Court-Classic-Vulc-Navy-Puma/dp/B0DDTZSG9L/ref=is_sr_dp_2?__mk_es_MX=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=24LK2NWH9QP4S&dib=eyJ2IjoiMSJ9.oU_ZdEU5ZNpcWoAkdYEbPBVodzr1AXZmaaczF2NYByGK4rR38mE1JVsYGOLbLn5BRixXqRP2MfNa4c4vJwzIQRzLjhmm2eVmEjn8ydd7zUsvAd_pkZTknVjG1ONmrRjGyyaafA67-w1DFfnVvc3bJznSThi3Ga2wXjfX9aGCqp6NLjibNLF8qNigDwmy9kCKrmq7F6A_20wykbEVe86di_ZK4KJSm-D9nElevpsq-kuby2Xlpba24BOc7AX35CkGvgsR1PeywPSevyh0t57iHmJ_xnP0MyULvXcNtp7H-wA.haG2pDM24FdrjYqHcLfB_2o2nPZxRxFaIbE3g6i1TSw&dib_tag=se&keywords=puma&qid=1779065022&sprefix=pum%2Caps%2C145&sr=8-8&ufe=app_do%3Aamzn1.fos.ecf8ea6b-8840-4b28-821b-333c5ba4275b&th=1&psc=1",
+    official: true,
+    imagenes: [
+      "resources/img/puma/original/court/Puma_Court_Classic_Vulc_Blue.jpg",
+      "resources/img/puma/original/court/Puma_Court_Classic_Vulc_Blue_b.jpg",
+      "resources/img/puma/original/court/Puma_Court_Classic_Vulc_Blue_c.jpg",
+      "resources/img/puma/original/court/Puma_Court_Classic_Vulc_Blue_d.jpg",
+      "resources/img/puma/original/court/Puma_Court_Classic_Vulc_Blue_e.jpg",
+    ],
+    nombre: "Puma Court Blue",
+    precio: 1300,
+    moneda: "$",
+    nuevo: true,
+    disc: true
+  },
+  {
     id: "90",
     imagenes: [
       "resources/img/nike/air_max/Air_Max_Black.jpg",
@@ -469,6 +546,18 @@ const productos = [
     precio: 685,
     moneda: "$",
     nuevo: false
+  },
+  {
+    id: "175",
+    imagenes: [
+      "resources/img/vans/old_school/Vans_Old_School_Chess.jpg",
+      "resources/img/vans/old_school/Vans_Old_School_Chess_b.jpg",
+      "resources/img/vans/old_school/Vans_Old_School_Chess_c.jpg"
+    ],
+    nombre: "Vans Ajedrez",
+    precio: 620,
+    moneda: "$",
+    nuevo: true
   },
   {
     id: "Retro 1",
@@ -582,6 +671,18 @@ const productos = [
     ],
     nombre: "Nike Air Zoom",
     precio: 645,
+    moneda: "$",
+    nuevo: true
+  },
+  {
+    id: "",
+    imagenes: [
+      "resources/img/timberland/Timberland_Mid_Black.jpg",
+      "resources/img/timberland/Timberland_Mid_Black_b.jpg",
+      "resources/img/timberland/Timberland_Mid_Black_c.jpg"
+    ],
+    nombre: "Timberland Bota Negro",
+    precio: 947,
     moneda: "$",
     nuevo: true
   },
@@ -766,34 +867,20 @@ const productos = [
     nuevo: true,
     disc: false
   },
-  {
-    id: "https://articulo.mercadolibre.com.mx/MLM-2687042371-nike-court-vision-low-tenis-grises-para-hombre-_JM?searchVariation=189339325408#polycard_client=search-desktop&searchVariation=189339325408&search_layout=grid&position=48&type=item&tracking_id=e5d741dc-a65d-49e7-8556-e83df3aa779b",
-    official: true,
-    imagenes: [
-      "resources/img/nike/court/original/Nike_Court_Vision_Low_Grey.jpg",
-      "resources/img/nike/court/original/Nike_Court_Vision_Low_Grey_b.jpg",
-      "resources/img/nike/court/original/Nike_Court_Vision_Low_Grey_c.jpg",
-    ],
-    nombre: "Nike Court Vision Low Grises",
-    precio: 1657,
-    moneda: "$",
-    nuevo: true,
-    disc: false
-  },
-  {
-    id: "https://articulo.mercadolibre.com.mx/MLM-3479562252-botas-de-martin-casuales-ligeras-transpirables-para-hombres-_JM?attributes=COLOR_SECONDARY_COLOR%3ATmVncm8%3D&picker=true&searchVariation=182337908778&quantity=1",
-    official: false,
-    imagenes: [
-      "resources/img/boots/Boot_Casual.jpg",
-      "resources/img/boots/Boot_Casual_b.jpg",
-      "resources/img/boots/Boot_Casual_c.jpg",
-    ],
-    nombre: "Bota Casual Marrón",
-    precio: 438,
-    moneda: "$",
-    nuevo: true,
-    disc: true
-  },
+//  {
+//    id: "https://articulo.mercadolibre.com.mx/MLM-2687042371-nike-court-vision-low-tenis-grises-para-hombre-_JM?searchVariation=189339325408#polycard_client=search-desktop&searchVariation=189339325408&search_layout=grid&position=48&type=item&tracking_id=e5d741dc-a65d-49e7-8556-e83df3aa779b",
+//    official: true,
+//    imagenes: [
+//      "resources/img/nike/court/original/Nike_Court_Vision_Low_Grey.jpg",
+//      "resources/img/nike/court/original/Nike_Court_Vision_Low_Grey_b.jpg",
+//      "resources/img/nike/court/original/Nike_Court_Vision_Low_Grey_c.jpg",
+//    ],
+//    nombre: "Nike Court Vision Low Grises",
+//    precio: 1657,
+//    moneda: "$",
+//    nuevo: true,
+//    disc: false
+//  },
   {
     id: "https://articulo.mercadolibre.com.mx/MLM-2752596082-tenis-flexi-para-mujer-estilo-125601-negro-_JM?searchVariation=179446840702#polycard_client=wishlist",
     official: true,
