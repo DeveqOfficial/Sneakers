@@ -38,35 +38,54 @@
   </select>
 </div>
 
-<div class="grid-wrapper">
-  <p class="count-label">Mostrando <span id="countNum">0</span> artículos</p>
-  <div id="catalog"></div>
+<!-- VISTA CATÁLOGO -->
+<div id="viewCatalog">
+  <div class="grid-wrapper">
+    <p class="count-label">Mostrando <span id="countNum">0</span> artículos</p>
+    <div id="catalog"></div>
+  </div>
 </div>
 
-<!-- MODAL -->
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal">
-    <div class="modal-carousel">
-      <div class="modal-track" id="modalTrack"></div>
-      <button class="modal-btn prev" id="modalPrev" onclick="modalSlide(-1)">
-        <span class="material-icons-round">chevron_left</span>
-      </button>
-      <button class="modal-btn next" id="modalNext" onclick="modalSlide(1)">
-        <span class="material-icons-round">chevron_right</span>
-      </button>
-    <div class="modal-dots" id="modalDots"></div>
-    </div>
-    <div class="modal-body">
-      <div class="modal-header-row">
-        <div>
-          <div class="modal-name" id="modalName"></div>
-          <div class="modal-price" id="modalPrice"></div>
-        </div>
-        <button class="fav-btn" id="modalFavBtn" onclick="toggleFavModal()">
-          <span class="material-icons-round">favorite_border</span>
+<!-- VISTA PRODUCTO (SPA) -->
+<div id="viewProduct" style="display:none">
+  <div class="product-page">
+    <button class="product-back" onclick="goBack()">
+      <span class="material-icons-round">arrow_back</span>
+      Volver al catálogo
+    </button>
+    <div class="product-layout">
+      <div class="product-thumbs" id="productThumbs"></div>
+      <div class="product-main-img-wrap">
+        <img id="productMainImg" src="" alt="" onclick="openLightbox(currentImgs, currentThumb)"/>
+        <button class="product-img-btn prev" onclick="thumbNav(-1)">
+          <span class="material-icons-round">chevron_left</span>
+        </button>
+        <button class="product-img-btn next" onclick="thumbNav(1)">
+          <span class="material-icons-round">chevron_right</span>
         </button>
       </div>
-      <button class="modal-close" onclick="closeModal()">Cerrar</button>
+      <div class="product-info">
+        <div class="product-badges" id="productBadges"></div>
+        <h2 class="product-name" id="productName"></h2>
+        <div class="product-price" id="productPrice"></div>
+        <div class="product-sizes-wrap" id="productSizesWrap">
+          <p class="product-sizes-label">Selecciona tu talla (MX):</p>
+          <div class="product-sizes" id="productSizes"></div>
+        </div>
+        <div class="product-desc" id="productDesc"></div>
+        <div class="product-actions">
+          <button class="product-fav-btn fav-btn" id="productFavBtn" onclick="toggleFavProduct()">
+            <span class="material-icons-round">favorite_border</span>
+          </button>
+          <a class="product-wa-btn" id="productWaBtn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.556 4.112 1.528 5.836L.057 23.571a.75.75 0 00.92.92l5.735-1.471A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.725 9.725 0 01-4.989-1.374l-.358-.214-3.712.952.969-3.614-.234-.373A9.718 9.718 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
+            </svg>
+            Pedir por WhatsApp
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
