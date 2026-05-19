@@ -1,6 +1,7 @@
 const WA_NUMBER = '525533948170';
 const productos = [
   {
+    airfireUrl: "https://airfire.com.mx/products/tenis-270-blanco-total",
     id: "270",
     imagenes: [
       "resources/img/nike/af1/AF1_White.jpg",
@@ -11,22 +12,21 @@ const productos = [
     precio: 575,
     moneda: "$",
     nuevo: true,
-    disc: true
-  },
-  {
-    id: "https://www.mercadolibre.com.mx/tenis-skechers-bobs-mujer-10008mxlav-textil-morado/up/MLMU3920258868#polycard_client=search-desktop&be_origin=backend&search_layout=grid&position=32&type=product&tracking_id=aff8f6a1-1f90-4ce9-84f0-0cca4006e243&wid=MLM5222932608&sid=search",
-    official: true,
-    imagenes: [
-      "resources/img/skechers/original/bobs/Skechers_Purple.jpg",
-      "resources/img/skechers/original/bobs/Skechers_Purple_b.jpg",
-      "resources/img/skechers/original/bobs/Skechers_Purple_c.jpg",
-      "resources/img/skechers/original/bobs/Skechers_Purple_d.jpg",
-    ],
-    nombre: "Skechers Guinda",
-    precio: 1150,
-    moneda: "$",
-    nuevo: true,
-    disc: true
+    disc: true,
+//    descripcion: "Clásico de clásicos. Parte superior de cuero sintético, suela de goma con amortiguación Air. Disponible en talla completa y media talla.",
+//    tallas: [
+//      { num: "24" },
+//      { num: "24.5" },
+//      { num: "25" },
+//      { num: "25.5" },
+//      { num: "26" },
+//      { num: "26.5" },
+//      { num: "27" },
+//      { num: "27.5", agotado: true },
+//      { num: "28" },
+//      { num: "28.5" },
+//      { num: "29" },
+//    ]
   },
   {
     id: "",
@@ -43,6 +43,22 @@ const productos = [
     imported: true
   },
   {
+    id: "https://www.mercadolibre.com.mx/tenis-skechers-bobs-mujer-10008mxlav-textil-morado/up/MLMU3920258868#polycard_client=search-desktop&be_origin=backend&search_layout=grid&position=32&type=product&tracking_id=aff8f6a1-1f90-4ce9-84f0-0cca4006e243&wid=MLM5222932608&sid=search",
+    official: true,
+    imagenes: [
+      "resources/img/skechers/original/bobs/Skechers_Purple.jpg",
+      "resources/img/skechers/original/bobs/Skechers_Purple_b.jpg",
+      "resources/img/skechers/original/bobs/Skechers_Purple_c.jpg",
+      "resources/img/skechers/original/bobs/Skechers_Purple_d.jpg",
+    ],
+    nombre: "Skechers Morados",
+    precio: 1150,
+    moneda: "$",
+    nuevo: true,
+    disc: true
+  },
+  {
+    airfireUrl:"https://airfire.com.mx/products/tenis-dunk-blanco-negro-negro",
     id: "",
     imagenes: [
       "resources/img/nike/dunk/Dunk_Negro.jpg",
@@ -53,22 +69,6 @@ const productos = [
     precio: 700,
     moneda: "$",
     nuevo: false
-  },
-  {
-    id: "https://articulo.mercadolibre.com.mx/MLM-2588323869-tenis-mujer-skechers-lite-transpirables-textil-_JM?searchVariation=187481486258",
-    official: true,
-    imagenes: [
-      "resources/img/skechers/original/Skechers_Cherry.jpg",
-      "resources/img/skechers/original/Skechers_Cherry_b.jpg",
-      "resources/img/skechers/original/Skechers_Cherry_c.jpg",
-      "resources/img/skechers/original/Skechers_Cherry_d.jpg",
-      "resources/img/skechers/original/Skechers_Cherry_e.jpg",
-    ],
-    nombre: "Skechers Guinda",
-    precio: 1169,
-    moneda: "$",
-    nuevo: false,
-    disc: true
   },
   {
     id: "https://www.mercadolibre.com.mx/tenis-reebok-mujer-bb-1000-mid-clip-blanco-gris-casual/up/MLMU3777193722#polycard_client=search-desktop&search_layout=grid&position=31&type=product&tracking_id=0454f298-f05e-4e6f-9ea9-3a4dca633d07&wid=MLM2728592599&sid=search",
@@ -86,7 +86,8 @@ const productos = [
     disc: true
   },
   {
-    id: "",
+    airfireUrl:"https://airfire.com.mx/products/tenis-samba-blanco-negro-gris",
+    id: "Smb",
     imagenes: [
       "resources/img/adidas/samba/Samba_White_Black_Gray.jpg",
       "resources/img/adidas/samba/Samba_White_Black_Gray_b.jpg",
@@ -99,6 +100,7 @@ const productos = [
     disc: true
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-travis-low-fragment-x",
     id: "",
     imagenes: [
       "resources/img/nike/travis/Air_Jordan_1_Travis_Low_Fragment_Blue_White.jpg",
@@ -110,7 +112,7 @@ const productos = [
     moneda: "$",
     nuevo: false
   },
-    {
+  {
     id: "https://articulo.mercadolibre.com.mx/MLM-2399673323-tenis-mujer-skechers-entrenamiento-correr-transpirable-_JM?searchVariation=184600550312#is_advertising=true&searchVariation=184600550312&backend_model=search-backend&be_origin=backend&position=2&search_layout=grid&type=pad&tracking_id=aff8f6a1-1f90-4ce9-84f0-0cca4006e243&ad_domain=VQCATCORE_LST&ad_position=2&ad_click_id=MWE2MjJiN2QtOWE0OS00ODI1LWExZWUtZTZjNjRlMTg2NTNi",
     official: true,
     imagenes: [
@@ -126,6 +128,7 @@ const productos = [
     disc: true
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-max-90-blanco-negro",
     id: "90",
     imagenes: [
       "resources/img/nike/air_max/Air_Max_White_Black.jpg",
@@ -153,6 +156,7 @@ const productos = [
     disc: false
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-270-blanco-negro-negro",
     id: "270",
     imagenes: [
       "resources/img/nike/af1/AF1_White_JustDoIt.jpg",
@@ -165,6 +169,7 @@ const productos = [
     nuevo: true
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-270-blanco-negro",
     id: "270",
     imagenes: [
       "resources/img/nike/af1/AF1_White_Black_Swoosh.jpg",
@@ -191,6 +196,7 @@ const productos = [
     disc: true
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-dunk-low-white-gray-importado",
     id: "",
     official: false,
     imagenes: [
@@ -205,6 +211,7 @@ const productos = [
     disc: false
   },   
   {
+    airfireUrl:"https://airfire.com.mx/products/dunk-low-blanco-cielo",
     id: "",
     imagenes: [
       "resources/img/nike/dunk/Nike_Dunk_White_Sky.jpg",
@@ -218,6 +225,7 @@ const productos = [
     disc: true
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-dunk-blanco-ambar",
     id: "",
     imagenes: [
       "resources/img/nike/dunk/Nike_Dunk_White_Amber.jpg",
@@ -262,7 +270,7 @@ const productos = [
 //    disc: true
 //  },
 //  {
-//    id: "ttps://articulo.mercadolibre.com.mx/MLM-2502920243-tenis-de-mujer-adidas-grand-court-k-comodos-y-casuales-uso-diario-_JM?searchVariation=191805769321#polycard_client=search-desktop&searchVariation=191805769321&search_layout=grid&position=5&type=item&tracking_id=449d7bcf-0821-4802-823f-7498b37945d5",
+//    id: "https://articulo.mercadolibre.com.mx/MLM-2502920243-tenis-de-mujer-adidas-grand-court-k-comodos-y-casuales-uso-diario-_JM?searchVariation=191805769321#polycard_client=search-desktop&searchVariation=191805769321&search_layout=grid&position=5&type=item&tracking_id=449d7bcf-0821-4802-823f-7498b37945d5",
 //    official: true,
 //    imagenes: [
 //      "resources/img/adidas/court/original/Adidas_GCK_Pink.jpg",
@@ -278,6 +286,7 @@ const productos = [
 //    disc: true
 //  },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-510-plata-blanco",
     id: "510",
     imagenes: [
       "resources/img/adidas/galaxy/Adidas_Galaxy_7.jpg",
@@ -306,6 +315,7 @@ const productos = [
 //    disc: true
 //  },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-retro-1-chicago-black",
     id: "",
     imagenes: [
       "resources/img/nike/air_jordan/Nike_Air_Jordan_Mid_Chicago_Black.jpg",
@@ -319,6 +329,7 @@ const productos = [
     disc: false
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-510-negro-oxford",
     id: "510",
     imagenes: [
       "resources/img/adidas/galaxy/Adidas_Galaxy_7_Oxford.jpg",
@@ -332,20 +343,22 @@ const productos = [
     disc: true
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-superstar-blanco-negro",
     id: "",
     imagenes: [
-      "resources/img/adidas/superstar/Adidas_SuperStar_Black.jpg",
-      "resources/img/adidas/superstar/Adidas_SuperStar_Black_b.jpg",
-      "resources/img/adidas/superstar/Adidas_SuperStar_Black_c.jpg"
+      "resources/img/adidas/superstar/Adidas_SuperStar_White_Black.jpg",
+      "resources/img/adidas/superstar/Adidas_SuperStar_White_Black_b.jpg",
+      "resources/img/adidas/superstar/Adidas_SuperStar_White_Black_c.jpg"
     ],
-    nombre: "Adidas SuperStar Negros",
+    nombre: "Adidas SuperStar Blanco Negro",
     precio: 667,
     moneda: "$",
-    nuevo: false,
+    nuevo: true,
     disc: true
   },
   {
-    id: "270",
+    airfireUrl:"https://airfire.com.mx/products/air-force-1-negro-total-premium",
+    id: "",
     imagenes: [
       "resources/img/nike/af1/1_1/AF1_Black_1.jpg",
       "resources/img/nike/af1/1_1/AF1_Black_1_b.jpg",
@@ -360,6 +373,7 @@ const productos = [
     disc: true
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-018-negro-blanco",
     id: "018",
     imagenes: [
       "resources/img/adidas/xplr/Adidas_XPLR_Negro.jpg",
@@ -372,6 +386,7 @@ const productos = [
     nuevo: false
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/air-force-1-blanco-total-piel-1-1",
     id: "",
     imagenes: [
       "resources/img/nike/af1/AF1_Blanco_1.jpg",
@@ -386,6 +401,7 @@ const productos = [
     nuevo: true
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-510-negro-rosa-turquesa",
     id: "510",
     imagenes: [
       "resources/img/adidas/galaxy/Adidas_Galaxy_7_Pink.jpg",
@@ -399,7 +415,7 @@ const productos = [
     disc: true
   },
   {
-    id: "",
+    id: "https://articulo.mercadolibre.com.mx/MLM-2593134831-tenis-skechers-dama-lila-casual-diario-comodo-cintas-ajustables-suelda-de-aire-para-mujer-_JM?searchVariation=193548928209#is_advertising=true&searchVariation=193548928209&backend_model=search-backend&be_origin=backend&position=2&search_layout=grid&type=pad&tracking_id=898f4022-344c-4973-85fc-f6f1dc63dd21&ad_domain=VQCATCORE_LST&ad_position=2&ad_click_id=OGQxMDIyY2EtYzY3NS00Y2UwLThjNGMtYTE5ZmUxNzgyNThl",
     official: true,
     imagenes: [
       "resources/img/skechers/original/angeles/Skechers_Lila_LA.jpg",
@@ -415,6 +431,7 @@ const productos = [
     disc: true
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-841-negro-total",
     id: "841",
     imagenes: [
       "resources/img/nike/af1/AF1_Mid_Black.jpg",
@@ -428,6 +445,7 @@ const productos = [
     disc: true
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-vans-choclo-negro-blanco",
     id: "175",
     imagenes: [
       "resources/img/vans/old_school/Vans_Old_School_Black_White.jpg",
@@ -437,10 +455,11 @@ const productos = [
     nombre: "Vans Old School Negro Blanco",
     precio: 615,
     moneda: "$",
-    nuevo: false,
+    nuevo: true,
     disc: false
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-270-negro-total",
     id: "270",
     imagenes: [
       "resources/img/nike/af1/AF1_Black.jpg",
@@ -454,19 +473,21 @@ const productos = [
     disc: true
   },
   {
-    id: "",
+    airfireUrl:"https://airfire.com.mx/products/tenis-superstar-blanco-lila-jaspeado",
+    id: "Concha",
     imagenes: [
-      "resources/img/nike/air_jordan/Nike_Air_Jordan_Mid_Lila.jpg",
-      "resources/img/nike/air_jordan/Nike_Air_Jordan_Mid_Lila_b.jpg",
-      "resources/img/nike/air_jordan/Nike_Air_Jordan_Mid_Lila_c.jpg"
+      "resources/img/adidas/superstar/Adidas_SuperStar_Rainbow.jpg",
+      "resources/img/adidas/superstar/Adidas_SuperStar_Rainbow_b.jpg",
+      "resources/img/adidas/superstar/Adidas_SuperStar_Rainbow_c.jpg"
     ],
-    nombre: "Nike Air Jordan Mid Lila",
-    precio: 1000,
+    nombre: "Adidas SuperStar Rainbow",
+    precio: 685,
     moneda: "$",
     nuevo: true,
-    disc: false
+    disc: true
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-018-negro-plata",
     id: "018",
     imagenes: [
       "resources/img/adidas/xplr/Adidas_XPLR_Black_Silver.jpg",
@@ -480,7 +501,8 @@ const productos = [
     disc: false
   },
   {
-    id: "",
+    airfireUrl:"https://airfire.com.mx/products/tenis-samba-negro-blanco",
+    id: "Smb",
     imagenes: [
       "resources/img/adidas/samba/Adidas_Samba_Black_White.jpg",
       "resources/img/adidas/samba/Adidas_Samba_Black_White_b.jpg",
@@ -495,6 +517,7 @@ const productos = [
 
   // página 2:
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-510-marino-blanco",
     id: "510",
     imagenes: [
       "resources/img/adidas/galaxy/Adidas_Galaxy_7_Marine_White.jpg",
@@ -524,6 +547,7 @@ const productos = [
     disc: true
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-max-90-oxford-negro-blanco",
     id: "90",
     imagenes: [
       "resources/img/nike/air_max/Air_Max_Black.jpg",
@@ -536,6 +560,7 @@ const productos = [
     nuevo: false
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-018-marino-blanco",
     id: "018",
     imagenes: [
       "resources/img/adidas/xplr/Adidas_XPLR_Marino.jpg",
@@ -560,6 +585,7 @@ const productos = [
     nuevo: true
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-retro-1-dakar-gris-verde",
     id: "Retro 1",
     imagenes: [
       "resources/img/nike/air_jordan/Nike_Air_Jordan_Mid_Grey_Green.jpg",
@@ -572,6 +598,7 @@ const productos = [
     nuevo: false
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-275-negro-blanco",
     id: "275",
     imagenes: [
       "resources/img/nike/af1/AF1_Black_White.jpg",
@@ -584,6 +611,7 @@ const productos = [
     nuevo: false
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-420-negro-blanco-negro",
     id: "420",
     imagenes: [
       "resources/img/nike/af1/AF1_Black_White_2.jpg",
@@ -596,7 +624,8 @@ const productos = [
     nuevo: false
   },
   {
-    id: "",
+    airfireUrl:"https://airfire.com.mx/products/tenis-campus-gris-blanco",
+    id: "2000s",
     imagenes: [
       "resources/img/adidas/campus/Adidas_Campus_Grey.jpg",
       "resources/img/adidas/campus/Adidas_Campus_Grey_b.jpg",
@@ -609,6 +638,7 @@ const productos = [
     disc: true
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-campus-negro-total",
     id: "",
     imagenes: [
       "resources/img/adidas/campus/Adidas_Campus_Black.jpg",
@@ -638,6 +668,7 @@ const productos = [
     disc: true
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-superstar-blanco-verde",
     id: "",
     imagenes: [
       "resources/img/adidas/superstar/Adidas_SuperStar_Green.jpg",
@@ -650,6 +681,7 @@ const productos = [
     nuevo: true
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-270-blanco-negro-rojo",
     id: "270",
     imagenes: [
       "resources/img/nike/af1/AF1_Black_White_JustDoIt.jpg",
@@ -663,18 +695,7 @@ const productos = [
   },
   // página 3:
   {
-    id: "025",
-    imagenes: [
-      "resources/img/nike/zoom/Nike_Air_Zoom.jpg",
-      "resources/img/nike/zoom/Nike_Air_Zoom_b.jpg",
-      "resources/img/nike/zoom/Nike_Air_Zoom_c.jpg"
-    ],
-    nombre: "Nike Air Zoom",
-    precio: 645,
-    moneda: "$",
-    nuevo: true
-  },
-  {
+    airfireUrl:"https://airfire.com.mx/products/tenis-timberland-bota-negro-blanco",
     id: "",
     imagenes: [
       "resources/img/timberland/Timberland_Mid_Black.jpg",
@@ -684,9 +705,11 @@ const productos = [
     nombre: "Timberland Bota Negro",
     precio: 947,
     moneda: "$",
-    nuevo: true
+    nuevo: true,
+    disc: true
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-vans-choclo-negro-total",
     id: "175",
     imagenes: [
       "resources/img/vans/old_school/Vans_Old_School_Black.jpg",
@@ -700,6 +723,7 @@ const productos = [
     disc: true
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-270-blanco-cielo-lila",
     id: "270",
     official: false,
     imagenes: [
@@ -747,6 +771,7 @@ const productos = [
     disc: true
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-275-blanco-lila",
     id: "275",
     official: false,
     imagenes: [
@@ -761,6 +786,7 @@ const productos = [
     disc: false
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-270-plus-charpeado-coral-lila",
     id: "270",
     official: false,
     imagenes: [
@@ -770,20 +796,6 @@ const productos = [
     ],
     nombre: "Nike AF1 Coral Lila",
     precio: 550,
-    moneda: "$",
-    nuevo: false,
-    disc: false
-  },
-  {
-    id: "",
-    official: false,
-    imagenes: [
-      "resources/img/nike/air_jordan/Nike_Air_Jordan_4_White_Grey.jpg",
-      "resources/img/nike/air_jordan/Nike_Air_Jordan_4_White_Grey_b.jpg",
-      "resources/img/nike/air_jordan/Nike_Air_Jordan_4_White_Grey_c.jpg",
-    ],
-    nombre: "Nike Air Jordan 4 Blanco Gris",
-    precio: 757,
     moneda: "$",
     nuevo: false,
     disc: false
@@ -961,7 +973,7 @@ function renderCards(lista){
     const dots = imgs.map((_,di)=>`<button class="dot${di===0?' active':''}" onclick="goCardDot(${idx},${di},event)"></button>`).join('');
 
     return `
-    <div class="card${p.official?' official':''}" style="animation-delay:${i*60}ms" onclick="openModal(${idx})">
+    <div class="card${p.official?' official':''}" style="animation-delay:${i*60}ms" onclick="openProduct(${idx})">
       <div class="carousel${single?' single':''}">
         <div class="carousel-track" id="track-${idx}">${trackImgs}</div>
         <button class="carousel-btn prev" onclick="cardSlide(${idx},-1,event)"><span class="material-icons-round">chevron_left</span></button>
@@ -1038,106 +1050,157 @@ function toggleFav(e,idx){
   // Si el filtro activo es "favoritos", sí hay que refrescar
   if(document.getElementById('sortSelect').value === 'favs') refresh();
 }
-function toggleFavModal(){
-  favoritos.has(modalIdx) ? favoritos.delete(modalIdx) : favoritos.add(modalIdx);
-  saveFavs();
+/* toggleFavModal removido — ahora se usa toggleFavProduct() en la vista SPA */
 
-  const isFav = favoritos.has(modalIdx);
+/* ══════════════════════════════
+   SPA — Navegación por hash
+══════════════════════════════ */
 
-  // Actualiza botón del modal
-  const btn = document.getElementById('modalFavBtn');
-  btn.classList.toggle('active', isFav);
-  btn.querySelector('.material-icons-round').textContent = isFav ? 'favorite' : 'favorite_border';
-
-  // Actualiza botón de la tarjeta sin redibujar
-  const card = document.querySelector(`[onclick="openModal(${modalIdx})"]`);
-  if(card){
-    const favBtn = card.querySelector('.fav-btn');
-    if(favBtn){
-      favBtn.classList.toggle('active', isFav);
-      favBtn.querySelector('.material-icons-round').textContent = isFav ? 'favorite' : 'favorite_border';
-    }
-  }
-
-  if(document.getElementById('sortSelect').value === 'favs') refresh();
+function slugify(str){
+  return str.toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/[^a-z0-9\s-]/g,'')
+    .trim().replace(/\s+/g,'-');
 }
 
-/* ── Modal ── */
-let modalIdx=0, modalCurrent=0;
+let currentProductIdx = null;
+let currentImgs = [];
+let currentThumb = 0;
 
-function openModal(idx){
-  modalIdx=idx; modalCurrent=0;
-  const p=productos[idx];
-  const imgs=(p.imagenes&&p.imagenes.length)?p.imagenes:[PLACEHOLDER];
-  document.getElementById('modalName').textContent=p.nombre;
-  document.getElementById('modalPrice').textContent=fmt(p.precio,p.moneda||'$');
+function openProduct(idx){
+  const p = productos[idx];
+  window.location.hash = slugify(p.nombre);
+  renderProduct(idx);
+}
 
-  const track=document.getElementById('modalTrack');
-  track.style.transition='none';
-  track.style.transform='translateX(0)';
-  track.innerHTML = imgs.map(src =>
-    `<img src="${src}" alt="${p.nombre}" onerror="this.src='${PLACEHOLDER}'">`
-  ).join('');
-  // Asignar onclick directamente al elemento DOM (evita problemas con el swipe)
-  Array.from(track.querySelectorAll('img')).forEach((img, i) => {
-    img.addEventListener('click', function(e){
-      e.stopPropagation();
-      openLightbox(imgs, i);
-    });
-  });
+function renderProduct(idx){
+  currentProductIdx = idx;
+  const p = productos[idx];
+  currentImgs = (p.imagenes && p.imagenes.length) ? p.imagenes : [PLACEHOLDER];
+  currentThumb = 0;
 
-  const dotsEl=document.getElementById('modalDots');
-  dotsEl.innerHTML=imgs.map((_,i)=>`<button class="modal-dot${i===0?' active':''}" onclick="goModalDot(${i})"></button>`).join('');
+  // Mostrar vista producto, ocultar catálogo
+  document.getElementById('viewCatalog').style.display = 'none';
+  document.getElementById('viewProduct').style.display = 'block';
+  window.scrollTo(0, 0);
 
-  const single=imgs.length===1;
-  document.getElementById('modalPrev').classList.toggle('hidden',single);
-  document.getElementById('modalNext').classList.toggle('hidden',single);
-  dotsEl.style.display=single?'none':'flex';
+  // Imagen principal
+  const mainImg = document.getElementById('productMainImg');
+  mainImg.src = currentImgs[0];
+  mainImg.alt = p.nombre;
 
-  document.getElementById('modalOverlay').classList.add('open');
+  // Miniaturas
+  const thumbsEl = document.getElementById('productThumbs');
+  thumbsEl.innerHTML = currentImgs.map((src, i) => `
+    <div class="product-thumb${i===0?' active':''}" onclick="selectThumb(${i})">
+      <img src="${src}" alt="${p.nombre} foto ${i+1}" onerror="this.src='${PLACEHOLDER}'"/>
+    </div>
+  `).join('');
 
-  const imgs2 = (p.imagenes && p.imagenes.length) ? p.imagenes : [PLACEHOLDER];
-  const modalCarousel = document.getElementById('modalTrack').parentElement;
-  if(imgs2.length > 1 && !modalCarousel._swipeAdded){
-    addSwipe(modalCarousel, ()=>modalSlide(1), ()=>modalSlide(-1));
-    modalCarousel._swipeAdded = true;
+  // Nombre y precio
+  document.getElementById('productName').textContent = p.nombre;
+  document.getElementById('productPrice').textContent = fmt(p.precio, p.moneda||'$');
+
+  // Badges
+  const badgesEl = document.getElementById('productBadges');
+  badgesEl.innerHTML = [
+    p.nuevo    ? '<span class="badge-new">Nuevo</span>'      : '',
+    p.disc     ? '<span class="badge-disc">%OFF</span>'      : '',
+    p.official ? '<span class="badge-official">Original</span>' : '',
+  ].join('');
+
+  // Tallas
+  // Tallas — consultar AirFire si hay URL, si no usar las manuales
+  const sizesWrap = document.getElementById('productSizesWrap');
+  const sizesEl   = document.getElementById('productSizes');
+  if(p.airfireUrl){
+    fetchTallas(p.airfireUrl);
+  } else if(p.tallas && p.tallas.length){
+    sizesWrap.style.display = 'block';
+    sizesEl.innerHTML = p.tallas.map(t => `
+      <button class="size-btn${t.agotado?' agotado':''}" onclick="selectSize(this,'${t.num}')" ${t.agotado?'disabled':''}>${t.num}</button>
+    `).join('');
+  } else {
+    sizesWrap.style.display = 'none';
   }
-  const favBtn = document.getElementById('modalFavBtn');
+
+  // Descripción
+  const descEl = document.getElementById('productDesc');
+  descEl.textContent = p.descripcion || '';
+  descEl.style.display = p.descripcion ? 'block' : 'none';
+
+  // Favorito
   const isFav = favoritos.has(idx);
+  const favBtn = document.getElementById('productFavBtn');
   favBtn.classList.toggle('active', isFav);
   favBtn.querySelector('.material-icons-round').textContent = isFav ? 'favorite' : 'favorite_border';
+
+  // WhatsApp
+  const msg = `Hola, me interesa este artículo:\n\n• ${p.nombre} — ${p.moneda||'$'}${p.precio.toLocaleString('es-MX')}\n\n¿Me pueden dar más información?`;
+  document.getElementById('productWaBtn').href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+
+  // Swipe en imagen principal
+  const mainWrap = mainImg.parentElement;
+  if(!mainWrap._swipeAdded){
+    addSwipe(mainWrap, ()=>thumbNav(1), ()=>thumbNav(-1));
+    mainWrap._swipeAdded = true;
   }
-
-function modalSlide(dir){
-  const imgs=(productos[modalIdx].imagenes||[PLACEHOLDER]);
-  modalCurrent=(modalCurrent+dir+imgs.length)%imgs.length;
-  const track=document.getElementById('modalTrack');
-  track.style.transition='transform .42s cubic-bezier(.4,0,.2,1)';
-  track.style.transform='translateX(-'+(modalCurrent*100)+'%)';
-  document.querySelectorAll('.modal-dot').forEach((d,i)=>d.classList.toggle('active',i===modalCurrent));
 }
 
-function goModalDot(i){
-  modalCurrent=i;
-  const track=document.getElementById('modalTrack');
-  track.style.transition='transform .42s cubic-bezier(.4,0,.2,1)';
-  track.style.transform='translateX(-'+(i*100)+'%)';
-  document.querySelectorAll('.modal-dot').forEach((d,j)=>d.classList.toggle('active',j===i));
+function selectThumb(i){
+  currentThumb = i;
+  document.getElementById('productMainImg').src = currentImgs[i];
+  document.querySelectorAll('.product-thumb').forEach((t,j)=>t.classList.toggle('active',j===i));
 }
 
-function closeModal(){
-  const overlay = document.getElementById('modalOverlay');
-  overlay.classList.add('closing');
-  setTimeout(() => {
-    overlay.classList.remove('open', 'closing');
-  }, 150);
+function thumbNav(dir){
+  const next = (currentThumb + dir + currentImgs.length) % currentImgs.length;
+  selectThumb(next);
 }
 
-document.getElementById('modalOverlay').addEventListener('click',function(e){ if(e.target===this) closeModal(); });
+function selectSize(btn, num){
+  document.querySelectorAll('.size-btn').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+}
+
+function toggleFavProduct(){
+  const idx = currentProductIdx;
+  favoritos.has(idx) ? favoritos.delete(idx) : favoritos.add(idx);
+  saveFavs();
+  const isFav = favoritos.has(idx);
+  const btn = document.getElementById('productFavBtn');
+  btn.classList.toggle('active', isFav);
+  btn.querySelector('.material-icons-round').textContent = isFav ? 'favorite' : 'favorite_border';
+}
+
+function goBack(){
+  history.back();
+}
+
+// Manejo del hash para navegación y botón atrás
+function handleHash(){
+  const hash = window.location.hash.slice(1);
+  if(!hash){
+    document.getElementById('viewCatalog').style.display = 'block';
+    document.getElementById('viewProduct').style.display = 'none';
+    return;
+  }
+  const idx = productos.findIndex(p => slugify(p.nombre) === hash);
+  if(idx !== -1){
+    renderProduct(idx);
+  } else {
+    document.getElementById('viewCatalog').style.display = 'block';
+    document.getElementById('viewProduct').style.display = 'none';
+  }
+}
+
+window.addEventListener('hashchange', handleHash);
+handleHash();
+
 document.addEventListener('keydown', e=>{
-  if(e.key==='Escape'){ closeModal(); closeLightbox(); }
-  if(e.key==='ArrowLeft')  { modalSlide(-1); lbSlide(-1); }
-  if(e.key==='ArrowRight') { modalSlide(1);  lbSlide(1);  }
+  if(e.key==='Escape') closeLightbox();
+  if(e.key==='ArrowLeft')  lbSlide(-1);
+  if(e.key==='ArrowRight') lbSlide(1);
 });
  
 function addSwipe(el, onLeft, onRight){
@@ -1167,5 +1230,39 @@ function closeLightbox(){
 function lbSlide(dir){
   lbCurrent = (lbCurrent + dir + lbImgs.length) % lbImgs.length;
   document.getElementById('lightboxImg').src = lbImgs[lbCurrent];
+}
+
+
+const WORKER_URL = 'https://af-qs.dvq-ent.workers.dev/';
+
+async function fetchTallas(airfireUrl){
+  const sizesEl   = document.getElementById('productSizes');
+  const sizesWrap = document.getElementById('productSizesWrap');
+
+  // Mostrar estado de carga
+  sizesWrap.style.display = 'block';
+  sizesEl.innerHTML = '<span style="color:var(--muted);font-size:.85rem">Consultando disponibilidad...</span>';
+
+  try {
+    const res  = await fetch(`${WORKER_URL}?url=${encodeURIComponent(airfireUrl)}`);
+    const data = await res.json();
+
+    if(data.error || !data.variants?.length){
+      sizesEl.innerHTML = '<span style="color:var(--muted);font-size:.85rem">No disponible por ahora</span>';
+      return;
+    }
+
+    sizesEl.innerHTML = data.variants.map(v => `
+      <button
+        class="size-btn${v.available ? '' : ' agotado'}"
+        ${v.available ? '' : 'disabled'}
+        onclick="selectSize(this,'${v.title}')">
+        ${v.title}
+      </button>
+    `).join('');
+
+  } catch(err){
+    sizesEl.innerHTML = '<span style="color:var(--muted);font-size:.85rem">Error al consultar tallas</span>';
+  }
 }
 refresh();
