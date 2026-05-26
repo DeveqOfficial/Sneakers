@@ -29,6 +29,7 @@ const productos = [
 //    ]
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-travis-low-fragment-importado",
     id: "",
     imagenes: [
       "resources/img/nike/travis/importado/Air_Jordan_1_Travis_Low_Fragment_Blue_White_Import.jpg",
@@ -55,7 +56,12 @@ const productos = [
     precio: 1150,
     moneda: "$",
     nuevo: true,
-    disc: true
+    disc: true,
+    tallas: [
+      { num: "22.5" },
+      { num: "23.5" },
+      { num: "25", agotado:true },
+    ]
   },
   {
     airfireUrl:"https://airfire.com.mx/products/tenis-dunk-blanco-negro-negro",
@@ -69,21 +75,6 @@ const productos = [
     precio: 700,
     moneda: "$",
     nuevo: false
-  },
-  {
-    id: "https://www.mercadolibre.com.mx/tenis-reebok-mujer-bb-1000-mid-clip-blanco-gris-casual/up/MLMU3777193722#polycard_client=search-desktop&search_layout=grid&position=31&type=product&tracking_id=0454f298-f05e-4e6f-9ea9-3a4dca633d07&wid=MLM2728592599&sid=search",
-    official: true,
-    imagenes: [
-      "resources/img/reebok/original/Reebok_Mid_White.jpg",
-      "resources/img/reebok/original/Reebok_Mid_White_b.jpg",
-      "resources/img/reebok/original/Reebok_Mid_White_c.jpg",
-      "resources/img/reebok/original/Reebok_Mid_White_d.jpg",
-    ],
-    nombre: "Reebok Mid Blancos",
-    precio: 987,
-    moneda: "$",
-    nuevo: true,
-    disc: true
   },
   {
     airfireUrl:"https://airfire.com.mx/products/tenis-samba-blanco-negro-gris",
@@ -125,7 +116,15 @@ const productos = [
     precio: 1339,
     moneda: "$",
     nuevo: true,
-    disc: true
+    disc: true,
+    tallas: [
+      { num: "22" },
+      { num: "23" },
+      { num: "24" },
+      { num: "25" },
+      { num: "26" },
+      { num: "27" },
+    ]
   },
   {
     airfireUrl:"https://airfire.com.mx/products/tenis-max-90-blanco-negro",
@@ -140,20 +139,6 @@ const productos = [
     moneda: "$",
     nuevo: false,
     disc: true
-  },
-  {
-    id: "",
-    official: false,
-    imagenes: [
-      "resources/img/nike/dunk/importado/Nike_Dunk_Blue_Imported.jpg",
-      "resources/img/nike/dunk/importado/Nike_Dunk_Blue_Imported_b.jpg",
-      "resources/img/nike/dunk/importado/Nike_Dunk_Blue_Imported_c.jpg",
-    ],
-    nombre: "Nike Dunk Azules 📦Importado",
-    precio: 1159,
-    moneda: "$",
-    nuevo: true,
-    disc: false
   },
   {
     airfireUrl:"https://airfire.com.mx/products/tenis-270-blanco-negro-negro",
@@ -183,6 +168,7 @@ const productos = [
     disc: true
   },
   {
+    airfireUrl:"https://airfire.com.mx/products/tenis-dunk-niebla-blanco-niebla",
     id: "",
     imagenes: [
       "resources/img/nike/dunk/Nike_Dunk_White_Blue.jpg",
@@ -250,41 +236,19 @@ const productos = [
     precio: 899,
     moneda: "$",
     nuevo: true,
-    disc: true
+    disc: true,
+    tallas: [
+      { num: "25" },
+      { num: "25.5" },
+      { num: "26" },
+      { num: "26.5" },
+      { num: "27" },
+      { num: "27.5"},
+      { num: "28" },
+      { num: "28.5" },
+      { num: "29" },
+    ]
   },
-
-//  {
-//    id: "https://www.mercadolibre.com.mx/tenis-para-mujer-adidas-duramo-rc2-w-correr-js4434/up/MLMU3430224253#polycard_client=search-desktop&search_layout=grid&position=2&type=product&tracking_id=9deaf553-4eb3-4395-8e06-8937726d87cc&wid=MLM5035178492&sid=search",
-//    official: true,
-//    imagenes: [
-//      "resources/img/adidas/duramo/original/Adidas_Duramo_Ocean.jpg",
-//      "resources/img/adidas/duramo/original/Adidas_Duramo_Ocean_b.jpg",
-//      "resources/img/adidas/duramo/original/Adidas_Duramo_Ocean_c.jpg",
-//      "resources/img/adidas/duramo/original/Adidas_Duramo_Ocean_d.jpg",
-//      "resources/img/adidas/duramo/original/Adidas_Duramo_Ocean_e.jpg",
-//    ],
-//    nombre: "Adidas Ocean",
-//    precio: 1359,
-//    moneda: "$",
-//    nuevo: true,
-//    disc: true
-//  },
-//  {
-//    id: "https://articulo.mercadolibre.com.mx/MLM-2502920243-tenis-de-mujer-adidas-grand-court-k-comodos-y-casuales-uso-diario-_JM?searchVariation=191805769321#polycard_client=search-desktop&searchVariation=191805769321&search_layout=grid&position=5&type=item&tracking_id=449d7bcf-0821-4802-823f-7498b37945d5",
-//    official: true,
-//    imagenes: [
-//      "resources/img/adidas/court/original/Adidas_GCK_Pink.jpg",
-//      "resources/img/adidas/court/original/Adidas_GCK_Pink_b.jpg",
-//      "resources/img/adidas/court/original/Adidas_GCK_Pink_c.jpg",
-//      "resources/img/adidas/court/original/Adidas_GCK_Pink_d.jpg",
-//      "resources/img/adidas/court/original/Adidas_GCK_Pink_e.jpg",
-//    ],
-//    nombre: "Adidas Court Rosas",
-//    precio: 933,
-//    moneda: "$",
-//    nuevo: true,
-//    disc: true
-//  },
   {
     airfireUrl:"https://airfire.com.mx/products/tenis-510-plata-blanco",
     id: "510",
@@ -299,21 +263,33 @@ const productos = [
     nuevo: true,
     disc: true
   },
-//  {
-//    id: "fttps://articulo.mercadolibre.com.mx/MLM-4426142654-tenis-adidas-casual-streettalk-hombre-jp8276-negro-_JM?searchVariation=187483877730#polycard_client=search-desktop&searchVariation=187483877730&search_layout=grid&position=8&type=item&tracking_id=449d7bcf-0821-4802-823f-7498b37945d5",
-//    official: true,
-//    imagenes: [
-//      "resources/img/adidas/street/original/Adidas_Street.jpg",
-//      "resources/img/adidas/street/original/Adidas_Street_b.jpg",
-//      "resources/img/adidas/street/original/Adidas_Street_c.jpg",
-//      "resources/img/adidas/street/original/Adidas_Street_d.jpg",
-//    ],
-//    nombre: "Adidas Street",
-//    precio: 1045,
-//    moneda: "$",
-//    nuevo: true,
-//    disc: true
-//  },
+  {
+    id: "https://www.mercadolibre.com.mx/tenis-adidas-casual-street-talk-hombre-rayas-blancas-jp8276/up/MLMU3455706574#polycard_client=recommendations_vip-v2p&reco_backend=ranker_retrieval_online_vpp_v2p&reco_model=organicos_deduplication&reco_client=vip-v2p&reco_item_pos=0&reco_backend_type=low_level&reco_id=dd2af6cf-fa11-468f-82c5-315b0d88ef6e&wid=MLM4723661850&sid=recos",
+    official: true,
+    imagenes: [
+      "resources/img/adidas/street/original/Adidas_Street.jpg",
+      "resources/img/adidas/street/original/Adidas_Street_b.jpg",
+      "resources/img/adidas/street/original/Adidas_Street_c.jpg",
+      "resources/img/adidas/street/original/Adidas_Street_d.jpg",
+    ],
+    nombre: "Adidas Street",
+    precio: 1449,
+    moneda: "$",
+    nuevo: true,
+    disc: true,
+    tallas: [
+      { num: "25" },
+      { num: "25.5" },
+      { num: "26" },
+      { num: "26.5", agotado:true },
+      { num: "27" },
+      { num: "27.5", agotado:true },
+      { num: "28" },
+      { num: "28.5" },
+      { num: "29" },
+      { num: "29", agotado:true },
+    ]
+  },
   {
     airfireUrl:"https://airfire.com.mx/products/tenis-retro-1-chicago-black",
     id: "",
@@ -428,7 +404,16 @@ const productos = [
     precio: 2000,
     moneda: "$",
     nuevo: true,
-    disc: true
+    disc: true,
+    tallas: [
+      { num: "22.5" },
+      { num: "23" },
+      { num: "23.5" },
+      { num: "24", agotado: true },
+      { num: "24.5" },
+      { num: "25" },
+      { num: "25.5" },
+    ]
   },
   {
     airfireUrl:"https://airfire.com.mx/products/tenis-841-negro-total",
@@ -531,22 +516,6 @@ const productos = [
     disc: true
   },
   {
-    id: "https://www.amazon.com.mx/PUMA-Court-Classic-Vulc-Navy-Puma/dp/B0DDTZSG9L/ref=is_sr_dp_2?__mk_es_MX=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=24LK2NWH9QP4S&dib=eyJ2IjoiMSJ9.oU_ZdEU5ZNpcWoAkdYEbPBVodzr1AXZmaaczF2NYByGK4rR38mE1JVsYGOLbLn5BRixXqRP2MfNa4c4vJwzIQRzLjhmm2eVmEjn8ydd7zUsvAd_pkZTknVjG1ONmrRjGyyaafA67-w1DFfnVvc3bJznSThi3Ga2wXjfX9aGCqp6NLjibNLF8qNigDwmy9kCKrmq7F6A_20wykbEVe86di_ZK4KJSm-D9nElevpsq-kuby2Xlpba24BOc7AX35CkGvgsR1PeywPSevyh0t57iHmJ_xnP0MyULvXcNtp7H-wA.haG2pDM24FdrjYqHcLfB_2o2nPZxRxFaIbE3g6i1TSw&dib_tag=se&keywords=puma&qid=1779065022&sprefix=pum%2Caps%2C145&sr=8-8&ufe=app_do%3Aamzn1.fos.ecf8ea6b-8840-4b28-821b-333c5ba4275b&th=1&psc=1",
-    official: true,
-    imagenes: [
-      "resources/img/puma/original/court/Puma_Court_Classic_Vulc_Blue.jpg",
-      "resources/img/puma/original/court/Puma_Court_Classic_Vulc_Blue_b.jpg",
-      "resources/img/puma/original/court/Puma_Court_Classic_Vulc_Blue_c.jpg",
-      "resources/img/puma/original/court/Puma_Court_Classic_Vulc_Blue_d.jpg",
-      "resources/img/puma/original/court/Puma_Court_Classic_Vulc_Blue_e.jpg",
-    ],
-    nombre: "Puma Court Blue",
-    precio: 1300,
-    moneda: "$",
-    nuevo: true,
-    disc: true
-  },
-  {
     airfireUrl:"https://airfire.com.mx/products/tenis-max-90-oxford-negro-blanco",
     id: "90",
     imagenes: [
@@ -571,18 +540,6 @@ const productos = [
     precio: 685,
     moneda: "$",
     nuevo: false
-  },
-  {
-    id: "175",
-    imagenes: [
-      "resources/img/vans/old_school/Vans_Old_School_Chess.jpg",
-      "resources/img/vans/old_school/Vans_Old_School_Chess_b.jpg",
-      "resources/img/vans/old_school/Vans_Old_School_Chess_c.jpg"
-    ],
-    nombre: "Vans Ajedrez",
-    precio: 620,
-    moneda: "$",
-    nuevo: true
   },
   {
     airfireUrl:"https://airfire.com.mx/products/tenis-retro-1-dakar-gris-verde",
@@ -665,7 +622,24 @@ const productos = [
     precio: 1499,
     moneda: "$",
     nuevo: true,
-    disc: true
+    disc: true,
+    tallas: [
+      { num: "23" },
+      { num: "23.5" },
+      { num: "24" },
+      { num: "24.5" },
+      { num: "25" },
+      { num: "25.5" },
+      { num: "26" },
+      { num: "26.5" },
+      { num: "27" },
+      { num: "27.5" },
+      { num: "28" },
+      { num: "28.5" },
+      { num: "29" },
+      { num: "29.5" },
+      { num: "30" },
+    ]
   },
   {
     airfireUrl:"https://airfire.com.mx/products/tenis-superstar-blanco-verde",
@@ -738,7 +712,8 @@ const productos = [
     disc: true
   },
   {
-    id: "ML",
+    id: "https://articulo.mercadolibre.com.mx/MLM-2444931592-tenis-para-mujer-nike-air-force-1-07-blanco-_JM?searchVariation=179578755431#polycard_client=search-desktop&be_origin=backend&searchVariation=179578755431&search_layout=grid&position=3&type=item&tracking_id=c5984729-64a3-4fe1-a0f8-9bb221904daf",
+    id2: "https://articulo.mercadolibre.com.mx/MLM-3488709256-tenis-para-hombre-nike-air-force-1-07-cw2288-111-_JM?searchVariation=186285986547#polycard_client=search-desktop&be_origin=backend&searchVariation=186285986547&search_layout=grid&position=1&type=item&tracking_id=d1c62455-41cb-42d2-95d5-5262bbe86d1f",
     official: true,
     imagenes: [
       "resources/img/nike/af1/original/Nike_Air_Force_One_White.jpg",
@@ -752,24 +727,37 @@ const productos = [
     precio: 2700,
     moneda: "$",
     nuevo: true,
-    disc: false
+    disc: false,
+    tallas: [
+      { num: "24" },
+      { num: "24.5" },
+      { num: "25" },
+      { num: "25.5" },
+      { num: "26", agotado: true },
+      { num: "26.5" },
+      { num: "27" },
+      { num: "27.5" },
+      { num: "28" },
+      { num: "28.5" },
+      { num: "29" },
+    ]
   },
-  {
-    id: "https://www.mercadolibre.com.mx/tenis-skechers-mujer-2110007bkpk-textil-negro/up/MLMU3809285919#polycard_client=search-desktop&search_layout=grid&position=1&type=product&tracking_id=94988087-669e-4673-ac6c-4048e174d0e6&wid=MLM4841778802&sid=search",
-    official: true,
-    imagenes: [
-      "resources/img/skechers/original/Skechers_Black_Pink.jpg",
-      "resources/img/skechers/original/Skechers_Black_Pink_b.jpg",
-      "resources/img/skechers/original/Skechers_Black_Pink_c.jpg",
-      "resources/img/skechers/original/Skechers_Black_Pink_d.jpg",
-      "resources/img/skechers/original/Skechers_Black_Pink_e.jpg",
-    ],
-    nombre: "Skechers Negros Rosa P/Dama",
-    precio: 1450,
-    moneda: "$",
-    nuevo: true,
-    disc: true
-  },
+//  {
+//    id: "https://www.mercadolibre.com.mx/tenis-skechers-mujer-2110007bkpk-textil-negro/up/MLMU3809285919#polycard_client=search-desktop&search_layout=grid&position=1&type=product&tracking_id=94988087-669e-4673-ac6c-4048e174d0e6&wid=MLM4841778802&sid=search",
+//    official: true,
+//    imagenes: [
+//      "resources/img/skechers/original/Skechers_Black_Pink.jpg",
+//      "resources/img/skechers/original/Skechers_Black_Pink_b.jpg",
+//      "resources/img/skechers/original/Skechers_Black_Pink_c.jpg",
+//      "resources/img/skechers/original/Skechers_Black_Pink_d.jpg",
+//      "resources/img/skechers/original/Skechers_Black_Pink_e.jpg",
+//    ],
+//    nombre: "Skechers Negros Rosa P/Dama",
+//    precio: 1450,
+//    moneda: "$",
+//    nuevo: true,
+//    disc: true
+//  },
   {
     airfireUrl:"https://airfire.com.mx/products/tenis-275-blanco-lila",
     id: "275",
@@ -811,45 +799,27 @@ const productos = [
       "resources/img/nike/court/original/Nike_Court_Vision_Low_e.jpg",
     ],
     nombre: "Nike Court Vision Low Blanco",
-    precio: 1900,
+    precio: 1599,
     moneda: "$",
     nuevo: true,
-    disc: false
-  },
-//  {
-//    id: "https://articulo.mercadolibre.com.mx/MLM-2633348521-nike-revolution-8-tenis-grises-de-correr-para-hombre-_JM?searchVariation=194438328859#polycard_client=search-desktop&searchVariation=194438328859&search_layout=grid&position=44&type=item&tracking_id=24b588ce-0b6b-4e21-b0a9-9a4cb2b2a863",
-//    official: true,
-//    imagenes: [
-//      "resources/img/nike/revolution/original/Nike_Revolution.jpg",
-//      "resources/img/nike/revolution/original/Nike_Revolution_b.jpg",
-//      "resources/img/nike/revolution/original/Nike_Revolution_c.jpg",
-//      "resources/img/nike/revolution/original/Nike_Revolution_d.jpg",
-//      "resources/img/nike/revolution/original/Nike_Revolution_e.jpg",
-//      "resources/img/nike/court/original/Nike_Court_Vision_Low_e.jpg",
-//    ],
-//    nombre: "Nike Revolution",
-//    precio: 1389,
-//    moneda: "$",
-//    nuevo: true,
-//    disc: true
-//  },
-
-//  {
-//    id: "https://articulo.mercadolibre.com.mx/MLM-4542222992-nike-court-vision-low-fl-tenis-beige-para-mujer-_JM?searchVariation=188214960168#polycard_client=search-desktop&searchVariation=188214960168&search_layout=grid&position=9&type=item&tracking_id=6f06de3c-8240-4ea1-91d3-bb86606e8ecd",
-//    official: true,
-//    imagenes: [
-//      "resources/img/nike/court/original/Nike_Court_Vision_Low_Beige.jpg",
-//      "resources/img/nike/court/original/Nike_Court_Vision_Low_Beige_b.jpg",
-//      "resources/img/nike/court/original/Nike_Court_Vision_Low_Beige_c.jpg",
-//      "resources/img/nike/court/original/Nike_Court_Vision_Low_Beige_d.jpg",
-//      "resources/img/nike/court/original/Nike_Court_Vision_Low_e.jpg",
-//    ],
-//    nombre: "Nike Court Vision Beige",
-//    precio: 1435,
-//    moneda: "$",
-//    nuevo: true,
-//    disc: true
-//  }, 
+    disc: true,
+    tallas: [
+      { num: "24", agotado: true },
+      { num: "24.5", agotado: true  },
+      { num: "25", agotado: true  },
+      { num: "25.5", agotado: true  },
+      { num: "26", agotado: true  },
+      { num: "26.5", agotado: true  },
+      { num: "27", agotado: true  },
+      { num: "27.5", agotado: true },
+      { num: "28" },
+      { num: "28.5" },
+      { num: "29" },
+      { num: "29.5" },
+      { num: "30" },
+      { num: "30.5" },
+    ]
+  }, 
   {
     id: "https://www.mercadolibre.com.mx/tenis-skechers-mujer-2110005blk-textil-negro/up/MLMU3819036748#polycard_client=recommendations_vip-pads-up&reco_backend=recomm_platform_base_pads_ron_marketplace&reco_model=rk_ent_v2_retsys_ads&reco_client=vip-pads-up&reco_item_pos=2&reco_backend_type=low_level&reco_id=ee69c953-c0c8-4151-b307-bcf9dfe8693d&wid=MLM4841445396&sid=recos&is_advertising=true&ad_domain=VIPDESKTOP_UP&ad_position=3&ad_click_id=YjIyMmYyOGMtZjZjMS00N2ZkLWI2ODUtOGJhYzEyOGI4ZWIx",
     official: true,
@@ -863,7 +833,11 @@ const productos = [
     precio: 1100,
     moneda: "$",
     nuevo: true,
-    disc: true
+    disc: true,
+    tallas: [
+      { num: "22.5" },
+    ]
+    
   },
   {
     id: "https://www.mercadolibre.com.mx/tenis-unisex-vans-ua-authentic-negroblanco-para-adulto/up/MLMU3215971389?pdp_filters=item_id%3AMLM4969610248#polycard_client=bookmarks&wid=MLM4969610248&sid=bookmarks",
@@ -874,25 +848,27 @@ const productos = [
       "resources/img/vans/original/Vans_UA_Authentic_c.jpg",
     ],
     nombre: "Vans UA Authentic",
-    precio: 999,
+    precio: 899,
     moneda: "$",
     nuevo: true,
-    disc: false
+    disc: true,
+    tallas: [
+      { num: "22.5" },
+      { num: "23" },
+      { num: "23.5", agotado: true },
+      { num: "24" },
+      { num: "24.5", agotado: true},
+      { num: "25" },
+      { num: "25.5" },
+      { num: "26", agotado: true },
+      { num: "26.5", agotado: true },
+      { num: "27" },
+      { num: "27.5" },
+      { num: "28", agotado: true },
+      { num: "28.5" },
+      { num: "29" },
+    ]
   },
-//  {
-//    id: "https://articulo.mercadolibre.com.mx/MLM-2687042371-nike-court-vision-low-tenis-grises-para-hombre-_JM?searchVariation=189339325408#polycard_client=search-desktop&searchVariation=189339325408&search_layout=grid&position=48&type=item&tracking_id=e5d741dc-a65d-49e7-8556-e83df3aa779b",
-//    official: true,
-//    imagenes: [
-//      "resources/img/nike/court/original/Nike_Court_Vision_Low_Grey.jpg",
-//      "resources/img/nike/court/original/Nike_Court_Vision_Low_Grey_b.jpg",
-//      "resources/img/nike/court/original/Nike_Court_Vision_Low_Grey_c.jpg",
-//    ],
-//    nombre: "Nike Court Vision Low Grises",
-//    precio: 1657,
-//    moneda: "$",
-//    nuevo: true,
-//    disc: false
-//  },
   {
     id: "https://articulo.mercadolibre.com.mx/MLM-2752596082-tenis-flexi-para-mujer-estilo-125601-negro-_JM?searchVariation=179446840702#polycard_client=wishlist",
     official: true,
@@ -904,10 +880,21 @@ const productos = [
       "resources/img/flexi/piso/original/Flexi_Low_Black_e.jpg",
     ],
     nombre: "Flexi Low P/Dama",
-    precio: 999,
+    precio: 783,
     moneda: "$",
     nuevo: true,
-    disc: true
+    disc: true,
+    tallas: [
+      { num: "22" },
+      { num: "22.5" },
+      { num: "23" },
+      { num: "23.5" },
+      { num: "24" },
+      { num: "24.5" },
+      { num: "25" },
+      { num: "25.5" },
+      { num: "26" },
+    ]
   },
 
 ];
