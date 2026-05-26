@@ -344,12 +344,19 @@
 
     /* Descripción */
 
-    MODIFICADO ................
+
+
+
+
+
     .product-desc {
       font-size: .92rem; line-height: 1.7; color: var(--muted); background-color: #aaaaaa;
       margin-bottom: 28px; border-top: 1px solid #cc0000; padding-top: 1px;
     }
 
+
+
+    
     /* Acciones */
     .product-actions { display: flex; align-items: center; gap: 12px; }
     .product-fav-btn {
