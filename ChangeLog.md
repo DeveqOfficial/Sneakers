@@ -1,7 +1,13 @@
 # ⏱️ Histórico de cambios
 
+## 🗓️ 01-06-2026 &emsp; V2.0.1
+* ➕ Se modifica el modal de vista del producto agregando una lupa y un zoom in y zoom out en vista móvil.
+* ➕ Se agregan arrays con la lista de tallas para los productos de mercado libre.
+* ➕ Se incorporó un listener para que al presionar retroceso en web o móvil se vaya a la página principal y no se salga por completo.
+* ➕ Se corrigió un bug en una línea del css en la parte de descripción.
+
 ## 🗓️ 18-05-2026 &emsp; V2.0.0
-* ➕ Se separa el css y js
+* ➕ Se separa el css y js.
 * ➕ Se implementa un rediseño en la interfaz, se elimina el modal y se implementa una nueva página al abrir un producto.
 * ➕ Se implementa un worker en cloudflare para crear un wraper y enlazar las tallas disponibles.
 

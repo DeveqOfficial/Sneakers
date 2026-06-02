@@ -28,6 +28,7 @@ const productos = [
 //      { num: "29" },
 //    ]
   },
+
   {
     airfireUrl:"https://airfire.com.mx/products/tenis-travis-low-fragment-importado",
     id: "",
@@ -42,6 +43,38 @@ const productos = [
     nuevo: true,
     disc: false,
     imported: true
+  },
+  {
+    id: "https://www.mercadolibre.com.mx/tenis-all-star-chuck-taylor-classic-low-top-sin-genero-color-negro-converse/up/MLMU1034310532?pdp_filters=item_id%3AMLM4969611072#polycard_client=wishlist&wid=MLM4969611072&sid=bookmarks",
+    official: true,
+    imagenes: [
+      "resources/img/converse/low/original/Converse_Classic.jpg",
+      "resources/img/converse/low/original/Converse_Classic_b.jpg",
+      "resources/img/converse/low/original/Converse_Classic_c.jpg",
+      "resources/img/converse/low/original/Converse_Classic_d.jpg",
+      "resources/img/converse/low/original/Converse_Classic_e.jpg",
+    ],
+    nombre: "Converse Classic",
+    precio: 1349,
+    moneda: "$",
+    nuevo: true,
+    disc: true,
+    tallas: [
+      { num: "23" },
+      { num: "23.5" },
+      { num: "24" },
+      { num: "24.5" },
+      { num: "25" },
+      { num: "25.5" },
+      { num: "26" },
+      { num: "26.5" },
+      { num: "27" },
+      { num: "27.5" },
+      { num: "28", agotado: true },
+      { num: "28.5" },
+      { num: "29" },
+      { num: "30" },
+    ]
   },
   {
     id: "https://www.mercadolibre.com.mx/tenis-skechers-bobs-mujer-10008mxlav-textil-morado/up/MLMU3920258868#polycard_client=search-desktop&be_origin=backend&search_layout=grid&position=32&type=product&tracking_id=aff8f6a1-1f90-4ce9-84f0-0cca4006e243&wid=MLM5222932608&sid=search",
@@ -61,6 +94,36 @@ const productos = [
       { num: "22.5" },
       { num: "23.5" },
       { num: "25", agotado:true },
+    ]
+  },
+  {
+    id: "https://articulo.mercadolibre.com.mx/MLM-4493249540-tenis-adidas-casual-run-60s-40-hombre-negro-jr6622-_JM?searchVariation=194005879553#polycard_client=wishlist",
+    official: true,
+    imagenes: [
+      "resources/img/adidas/run/original/Adidas_Casual_Run.jpg",
+      "resources/img/adidas/run/original/Adidas_Casual_Run_b.jpg",
+      "resources/img/adidas/run/original/Adidas_Casual_Run_c.jpg",
+      "resources/img/adidas/run/original/Adidas_Casual_Run_d.jpg",
+      "resources/img/adidas/run/original/Adidas_Casual_Run_e.jpg",
+    ],
+    nombre: "Adidas Run 60s",
+    precio: 979,
+    moneda: "$",
+    nuevo: true,
+    disc: true,
+    tallas: [
+      { num: "25" },
+      { num: "25.5" },
+      { num: "26" },
+      { num: "26.5" },
+      { num: "27" },
+      { num: "27.5" },
+      { num: "28" },
+      { num: "28.5" },
+      { num: "29" },
+      { num: "29.5" },
+      { num: "30" },
+      { num: "30.5" },
     ]
   },
   {
@@ -273,7 +336,7 @@ const productos = [
       "resources/img/adidas/street/original/Adidas_Street_d.jpg",
     ],
     nombre: "Adidas Street",
-    precio: 1449,
+    precio: 1200,
     moneda: "$",
     nuevo: true,
     disc: true,
@@ -281,13 +344,6 @@ const productos = [
       { num: "25" },
       { num: "25.5" },
       { num: "26" },
-      { num: "26.5", agotado:true },
-      { num: "27" },
-      { num: "27.5", agotado:true },
-      { num: "28" },
-      { num: "28.5" },
-      { num: "29" },
-      { num: "29", agotado:true },
     ]
   },
   {
@@ -527,6 +583,40 @@ const productos = [
     precio: 655,
     moneda: "$",
     nuevo: false
+  },
+  {
+    id: "https://www.mercadolibre.com.mx/tenis-converse-chuck-taylor-all-star-classic-unisex-adultos/up/MLMU525630411?pdp_filters=item_id:MLM4969611212#polycard_client=recommendations_vip-pads-up&reco_backend=recomm_platform_base_pads_ron_marketplace&reco_model=fallback_productos-promocionados&reco_client=vip-pads-up&reco_item_pos=2&reco_backend_type=low_level&reco_id=0661674c-a8c7-4cef-824b-0cae69194d8f&wid=MLM4969611212&sid=recos&is_advertising=true&ad_domain=VIPDESKTOP_UP&ad_position=3&ad_click_id=ZjgwODlmNzAtZmU4Ny00ZmUyLThlMWQtNzNkNmQyNGJhMmZh",
+    official: true,
+    imagenes: [
+      "resources/img/converse/low/original/Converse_Classic_Red.jpg",
+      "resources/img/converse/low/original/Converse_Classic_Red_b.jpg",
+      "resources/img/converse/low/original/Converse_Classic_Red_c.jpg",
+      "resources/img/converse/low/original/Converse_Classic_Red_d.jpg",
+      "resources/img/converse/low/original/Converse_Classic_Red_e.jpg",
+      "resources/img/converse/low/original/Converse_Classic_Red_f.jpg",
+    ],
+    nombre: "Converse Classic Rojos",
+    precio: 1349,
+    moneda: "$",
+    nuevo: true,
+    disc: true,
+    tallas: [
+      { num: "23" },
+      { num: "23.5" },
+      { num: "24" },
+      { num: "24.5" },
+      { num: "25" },
+      { num: "25.5" },
+      { num: "26" },
+      { num: "26.5" },
+      { num: "27" },
+      { num: "27.5" },
+      { num: "28" },
+      { num: "28.5" },
+      { num: "29" },
+      { num: "29.5" },
+      { num: "30" },
+    ]
   },
   {
     airfireUrl:"https://airfire.com.mx/products/tenis-018-marino-blanco",
@@ -1021,8 +1111,20 @@ function updateWaBtn(){
     btn.style.display = 'none';
   }
 } 
-document.getElementById('searchInput').addEventListener('input', refresh);
-document.getElementById('sortSelect').addEventListener('change', refresh);
+let busquedaActiva = false;
+
+document.getElementById('searchInput').addEventListener('input', function(){
+  const q = this.value.trim();
+  if(q && !busquedaActiva){
+    // Primera letra — agrega un paso nuevo al historial
+    history.pushState({ busqueda: true }, '');
+    busquedaActiva = true;
+  } else if(!q){
+    // Borró todo — ya no hay búsqueda activa
+    busquedaActiva = false;
+  }
+  refresh();
+});
 
 function toggleFav(e,idx){
   e.stopPropagation();
@@ -1053,8 +1155,10 @@ function slugify(str){
 let currentProductIdx = null;
 let currentImgs = [];
 let currentThumb = 0;
+let savedScrollY = 0;
 
 function openProduct(idx){
+  savedScrollY = window.scrollY;  // ← guarda posición antes de entrar
   const p = productos[idx];
   window.location.hash = slugify(p.nombre);
   renderProduct(idx);
@@ -1161,16 +1265,19 @@ function toggleFavProduct(){
 }
 
 function goBack(){
-  history.back();
+  window.location.hash = '';
 }
 
 // Manejo del hash para navegación y botón atrás
 function handleHash(){
   const hash = window.location.hash.slice(1);
   if(!hash){
-    document.getElementById('viewCatalog').style.display = 'block';
-    document.getElementById('viewProduct').style.display = 'none';
-    return;
+  document.querySelector('.controls').style.display = '';
+  document.getElementById('viewCatalog').style.display = 'block';
+  document.getElementById('viewProduct').style.display = 'none';
+  // Restaurar posición del scroll después de que el DOM se pinte
+  requestAnimationFrame(() => window.scrollTo(0, savedScrollY));
+  return;
   }
   const idx = productos.findIndex(p => slugify(p.nombre) === hash);
   if(idx !== -1){
@@ -1202,16 +1309,21 @@ function addSwipe(el, onLeft, onRight){
 let lbImgs = [], lbCurrent = 0;
  
 function openLightbox(imgs, startIdx){
+  history.pushState({ lightbox: true }, '');
   lbImgs = imgs; lbCurrent = startIdx;
   document.getElementById('lightboxImg').src = imgs[startIdx];
   const single = imgs.length <= 1;
   document.getElementById('lbPrev').classList.toggle('hidden', single);
   document.getElementById('lbNext').classList.toggle('hidden', single);
   document.getElementById('lightbox').classList.add('open');
+  if(window._resetLightboxZoom) window._resetLightboxZoom();
 }
  
 function closeLightbox(){
   document.getElementById('lightbox').classList.remove('open');
+  if(window._resetLightboxZoom) window._resetLightboxZoom();
+  // Limpiar el pushState del lightbox sin navegar
+  if(history.state?.lightbox) history.replaceState(null, '', window.location.href);
 }
  
 function lbSlide(dir){
@@ -1219,6 +1331,146 @@ function lbSlide(dir){
   document.getElementById('lightboxImg').src = lbImgs[lbCurrent];
 }
 
+/* ── Lupa en lightbox ── */
+document.addEventListener('DOMContentLoaded', function(){
+  // Crear elemento lupa
+  const lupa = document.createElement('div');
+  lupa.className = 'lupa';
+  const lupaImg = document.createElement('img');
+  lupa.appendChild(lupaImg);
+  document.body.appendChild(lupa);
+
+  const ZOOM      = 2.5;   // nivel de zoom — sube para más zoom
+  const LUPA_SIZE = 380;   // debe coincidir con el CSS
+
+  const lightbox    = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+
+  lightboxImg.addEventListener('mousemove', function(e){
+    const rect = lightboxImg.getBoundingClientRect();
+
+    // Solo activar si el cursor está sobre la imagen
+    if(
+      e.clientX < rect.left || e.clientX > rect.right ||
+      e.clientY < rect.top  || e.clientY > rect.bottom
+    ){
+      lupa.style.display = 'none';
+      return;
+    }
+
+    // Posición del cursor relativa a la imagen (0 a 1)
+    const px = (e.clientX - rect.left)  / rect.width;
+    const py = (e.clientY - rect.top)   / rect.height;
+
+    // Mover la lupa siguiendo el cursor
+    lupa.style.display = 'block';
+    lupa.style.left = (e.clientX - LUPA_SIZE / 2) + 'px';
+    lupa.style.top  = (e.clientY - LUPA_SIZE / 2) + 'px';
+
+    // Tamaño de la imagen dentro de la lupa
+    const iw = rect.width  * ZOOM;
+    const ih = rect.height * ZOOM;
+
+    lupaImg.src    = lightboxImg.src;
+    lupaImg.style.width  = iw + 'px';
+    lupaImg.style.height = ih + 'px';
+
+    // Desplazar la imagen para que el punto correcto quede centrado
+    lupaImg.style.left = (LUPA_SIZE / 2 - px * iw) + 'px';
+    lupaImg.style.top  = (LUPA_SIZE / 2 - py * ih) + 'px';
+  });
+
+  // Ocultar lupa al salir de la imagen o cerrar lightbox
+  lightboxImg.addEventListener('mouseleave', () => lupa.style.display = 'none');
+  lightbox.addEventListener('mouseleave',    () => lupa.style.display = 'none');
+
+  // ── Pinch to zoom en móvil ──
+  let pScale = 1, pLastScale = 1, pDist = 0;
+  let pDx = 0, pDy = 0, pLastDx = 0, pLastDy = 0;
+  let pStartX = 0, pStartY = 0;
+
+  function resetPinch(){
+    pScale = 1; pLastScale = 1;
+    pDx = 0; pDy = 0; pLastDx = 0; pLastDy = 0;
+    lightboxImg.style.transform       = '';
+    lightboxImg.style.transformOrigin = 'center center';
+  }
+
+  // Exponer reset para usarlo desde openLightbox y closeLightbox
+  window._resetLightboxZoom = resetPinch;
+
+  function getPinchDist(e){
+    const dx = e.touches[0].clientX - e.touches[1].clientX;
+    const dy = e.touches[0].clientY - e.touches[1].clientY;
+    return Math.hypot(dx, dy);
+  }
+
+  lightboxImg.addEventListener('touchstart', function(e){
+    lupa.style.display = 'none';
+    if(e.touches.length === 2){
+      e.preventDefault();
+      pDist      = getPinchDist(e);
+      pLastScale = pScale;
+      pLastDx    = pDx;
+      pLastDy    = pDy;
+    } else if(e.touches.length === 1 && pScale > 1){
+      pStartX = e.touches[0].clientX - pDx;
+      pStartY = e.touches[0].clientY - pDy;
+    }
+  }, { passive: false });
+
+  lightboxImg.addEventListener('touchmove', function(e){
+    if(e.touches.length === 2){
+      e.preventDefault();
+      const newDist = getPinchDist(e);
+      pScale = Math.min(5, Math.max(1, pLastScale * (newDist / pDist)));
+
+      // Limitar el translate según el scale para que no se escape
+      const maxDx = (lightboxImg.offsetWidth  * (pScale - 1)) / 2;
+      const maxDy = (lightboxImg.offsetHeight * (pScale - 1)) / 2;
+      pDx = Math.min(maxDx, Math.max(-maxDx, pLastDx));
+      pDy = Math.min(maxDy, Math.max(-maxDy, pLastDy));
+
+      lightboxImg.style.transformOrigin = 'center center';
+      lightboxImg.style.transform = `scale(${pScale}) translate(${pDx / pScale}px, ${pDy / pScale}px)`;
+
+    } else if(e.touches.length === 1 && pScale > 1){
+      e.preventDefault();
+      const newDx = e.touches[0].clientX - pStartX;
+      const newDy = e.touches[0].clientY - pStartY;
+
+      // Limitar arrastre a los bordes de la imagen
+      const maxDx = (lightboxImg.offsetWidth  * (pScale - 1)) / 2;
+      const maxDy = (lightboxImg.offsetHeight * (pScale - 1)) / 2;
+      pDx = Math.min(maxDx, Math.max(-maxDx, newDx));
+      pDy = Math.min(maxDy, Math.max(-maxDy, newDy));
+
+      lightboxImg.style.transform = `scale(${pScale}) translate(${pDx / pScale}px, ${pDy / pScale}px)`;
+    }
+  }, { passive: false });
+
+  lightboxImg.addEventListener('touchend', function(){
+    if(pScale < 1.08) resetPinch();
+  });
+});
+
+window.addEventListener('popstate', function(e){
+  // Prioridad 1 — cerrar lightbox si está abierto
+  if(document.getElementById('lightbox').classList.contains('open')){
+    if(window._resetLightboxZoom) window._resetLightboxZoom();
+    document.getElementById('lightbox').classList.remove('open');
+    return;
+  }
+
+  // Prioridad 2 — limpiar búsqueda si había texto
+  const searchInput = document.getElementById('searchInput');
+  if(searchInput.value.trim()){
+    searchInput.value = '';
+    busquedaActiva = false;
+    refresh();
+    return;
+  }
+});
 
 const WORKER_URL = 'https://af-qs.dvq-ent.workers.dev/';
 
