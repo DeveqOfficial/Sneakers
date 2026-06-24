@@ -1046,11 +1046,11 @@ function renderCards(lista){
     if(cardState[idx]==null) cardState[idx]=0;
     const isFav = favoritos.has(idx);
 
-    const trackImgs = imgs.map(src=>`<img src="${src}" alt="${p.nombre}" onerror="this.src='${PLACEHOLDER}'">`).join('');
+    const trackImgs = imgs.map((src,i)=>`<img src="${src}" alt="${p.nombre}" loading="${i===0?'eager':'lazy'}" decoding="async" onerror="this.src='${PLACEHOLDER}'">`).join('');
     const dots = imgs.map((_,di)=>`<button class="dot${di===0?' active':''}" onclick="goCardDot(${idx},${di},event)"></button>`).join('');
 
     return `
-    <div class="card${p.official?' official':''}" style="animation-delay:${i*60}ms" onclick="openProduct(${idx})">
+    <div class="card${p.official?' official':''}" style="animation-delay:${i*20}ms" onclick="openProduct(${idx})">
       <div class="carousel${single?' single':''}">
         <div class="carousel-track" id="track-${idx}">${trackImgs}</div>
         <button class="carousel-btn prev" onclick="cardSlide(${idx},-1,event)"><span class="material-icons-round">chevron_left</span></button>
@@ -1085,7 +1085,7 @@ function getFiltered(){
   if(sort==='asc')  lista=[...lista].sort((a,b)=>a.precio-b.precio);
   if(sort==='desc') lista=[...lista].sort((a,b)=>b.precio-a.precio);
   if(sort==='name') lista=[...lista].sort((a,b)=>a.nombre.localeCompare(b.nombre));
-  if(sort==='favs') lista=lista.filter((_,i)=>favoritos.has(productos.indexOf(lista[i])));
+  if(sort==='favs') lista = lista.filter(p => favoritos.has(productos.indexOf(p)));
   return lista;
 }
 function refresh(){
@@ -1125,6 +1125,8 @@ document.getElementById('searchInput').addEventListener('input', function(){
   }
   refresh();
 });
+
+document.getElementById('sortSelect').addEventListener('change', refresh);
 
 function toggleFav(e,idx){
   e.stopPropagation();
@@ -1184,7 +1186,7 @@ function renderProduct(idx){
   const thumbsEl = document.getElementById('productThumbs');
   thumbsEl.innerHTML = currentImgs.map((src, i) => `
     <div class="product-thumb${i===0?' active':''}" onclick="selectThumb(${i})">
-      <img src="${src}" alt="${p.nombre} foto ${i+1}" onerror="this.src='${PLACEHOLDER}'"/>
+      <img src="${src}" alt="${p.nombre} foto ${i+1}" loading="lazy" decoding="async" onerror="this.src='${PLACEHOLDER}'"/>
     </div>
   `).join('');
 
