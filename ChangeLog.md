@@ -1,5 +1,9 @@
 # ⏱️ Histórico de cambios
 
+## 🗓️ 23-06-2026 &emsp; V2.0.2
+* ➕ Se corrige bug que evitaba filtrar por alguna categoría.
+* ➕ Se optimizan los tiempos de carga.
+
 ## 🗓️ 01-06-2026 &emsp; V2.0.1
 * ➕ Se modifica el modal de vista del producto agregando una lupa y un zoom in y zoom out en vista móvil.
 * ➕ Se agregan arrays con la lista de tallas para los productos de mercado libre.
