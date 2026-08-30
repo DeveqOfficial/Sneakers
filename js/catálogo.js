@@ -38,7 +38,7 @@ const productos = [
       "resources/img/nike/travis/importado/Air_Jordan_1_Travis_Low_Fragment_Blue_White_Import_c.jpg"
     ],
     nombre: "Travis Scott x Air Jordan 1 📦Importado",
-    precio: 1557,
+    precio: 1607,
     moneda: "$",
     nuevo: true,
     disc: false,
@@ -92,8 +92,10 @@ const productos = [
     disc: true,
     tallas: [
       { num: "22.5" },
-      { num: "23.5" },
-      { num: "25", agotado:true },
+      { num: "23.5", agotado: true },
+      { num: "24.5" },
+      { num: "25", agotado: true },
+      { num: "25.5", agotado: true },
     ]
   },
   {
@@ -107,23 +109,23 @@ const productos = [
       "resources/img/adidas/run/original/Adidas_Casual_Run_e.jpg",
     ],
     nombre: "Adidas Run 60s",
-    precio: 979,
+    precio: 1237,
     moneda: "$",
     nuevo: true,
     disc: true,
     tallas: [
-      { num: "25" },
-      { num: "25.5" },
-      { num: "26" },
-      { num: "26.5" },
-      { num: "27" },
-      { num: "27.5" },
-      { num: "28" },
-      { num: "28.5" },
-      { num: "29" },
-      { num: "29.5" },
+      { num: "25", agotado: true },
+      { num: "25.5", agotado: true },
+      { num: "26", agotado: true },
+      { num: "26.5", agotado: true },
+      { num: "27", agotado: true },
+      { num: "27.5", agotado: true },
+      { num: "28", agotado: true },
+      { num: "28.5", agotado: true },
+      { num: "29", agotado: true },
+      { num: "29.5", agotado: true },
       { num: "30" },
-      { num: "30.5" },
+      { num: "30.5", agotado: true },
     ]
   },
   {
@@ -135,7 +137,7 @@ const productos = [
       "resources/img/nike/dunk/Dunk_Negro_c.jpg"
     ],
     nombre: "Nike Dunk Negro",
-    precio: 700,
+    precio: 785,
     moneda: "$",
     nuevo: false
   },
@@ -148,10 +150,10 @@ const productos = [
       "resources/img/adidas/samba/Samba_White_Black_Gray_c.jpg"
     ],
     nombre: "Adidas Samba Blanco Negro & Gris",
-    precio: 655,
+    precio: 755,
     moneda: "$",
     nuevo: false,
-    disc: true
+    disc: false
   },
   {
     airfireUrl:"https://airfire.com.mx/products/tenis-travis-low-fragment-x",
@@ -179,14 +181,14 @@ const productos = [
     precio: 1339,
     moneda: "$",
     nuevo: true,
-    disc: true,
+    disc: false,
     tallas: [
       { num: "22" },
       { num: "23" },
       { num: "24" },
       { num: "25" },
       { num: "26" },
-      { num: "27" },
+      { num: "27", agotado: true },
     ]
   },
   {
@@ -254,7 +256,7 @@ const productos = [
       "resources/img/nike/dunk/importado/Nike_Dunk_White_Grey_Imported_c.jpg",
     ],
     nombre: "Nike Dunk Gris 📦Importado",
-    precio: 1159,
+    precio: 1165,
     moneda: "$",
     nuevo: true,
     disc: false
@@ -296,7 +298,7 @@ const productos = [
       "resources/img/polo/original/york_team/Polo_Club_York_Team_c.jpg",
     ],
     nombre: "Polo Club Gris Azul",
-    precio: 899,
+    precio: 799,
     moneda: "$",
     nuevo: true,
     disc: true,
@@ -321,7 +323,7 @@ const productos = [
       "resources/img/adidas/galaxy/Adidas_Galaxy_7_c.jpg"
     ],
     nombre: "Adidas Galaxy Gris",
-    precio: 675,
+    precio: 695,
     moneda: "$",
     nuevo: true,
     disc: true
@@ -336,14 +338,16 @@ const productos = [
       "resources/img/adidas/street/original/Adidas_Street_d.jpg",
     ],
     nombre: "Adidas Street",
-    precio: 1200,
+    precio: 1329,
     moneda: "$",
     nuevo: true,
     disc: true,
     tallas: [
       { num: "25" },
-      { num: "25.5" },
+      { num: "25.5", agotado: true },
       { num: "26" },
+      { num: "28" },
+      { num: "28.5" },
     ]
   },
   {
@@ -369,7 +373,7 @@ const productos = [
       "resources/img/adidas/galaxy/Adidas_Galaxy_7_Oxford_c.jpg"
     ],
     nombre: "Adidas Galaxy Oxford",
-    precio: 675,
+    precio: 695,
     moneda: "$",
     nuevo: true,
     disc: true
@@ -399,7 +403,7 @@ const productos = [
       "resources/img/nike/af1/1_1/AF1_Black_1_e.jpg",
     ],
     nombre: "Air Force One Negro Premium 1:1",
-    precio: 943,
+    precio: 1025,
     moneda: "$",
     nuevo: true,
     disc: true
@@ -428,8 +432,9 @@ const productos = [
       "resources/img/nike/af1/AF1_Blanco_1_e.jpg"
     ],
     nombre: "Air Force One Blanco Piel 1:1",
-    precio: 1219,
+    precio: 1175,
     moneda: "$",
+    disc: true,
     nuevo: true
   },
   {
@@ -441,7 +446,7 @@ const productos = [
       "resources/img/adidas/galaxy/Adidas_Galaxy_7_Pink_c.jpg"
     ],
     nombre: "Adidas Galaxy Rosas",
-    precio: 675,
+    precio: 695,
     moneda: "$",
     nuevo: true,
     disc: true
@@ -457,18 +462,18 @@ const productos = [
       "resources/img/skechers/original/angeles/Skechers_Lila_LA_e.jpg",
     ],
     nombre: "Skechers LA Lila",
-    precio: 2000,
+    precio: 2100,
     moneda: "$",
     nuevo: true,
-    disc: true,
+    disc: false,
     tallas: [
       { num: "22.5" },
-      { num: "23" },
+      { num: "23", agotado:true},
       { num: "23.5" },
       { num: "24", agotado: true },
-      { num: "24.5" },
+      { num: "24.5", agotado: true },
       { num: "25" },
-      { num: "25.5" },
+      { num: "25.5", agotado: true },
     ]
   },
   {
@@ -508,7 +513,7 @@ const productos = [
       "resources/img/nike/af1/AF1_Black_c.jpg",
     ],
     nombre: "Air Force One Negro",
-    precio: 550,
+    precio: 575,
     moneda: "$",
     nuevo: true,
     disc: true
@@ -536,7 +541,7 @@ const productos = [
       "resources/img/adidas/xplr/Adidas_XPLR_Black_Silver_c.jpg"
     ],
     nombre: "Adidas XPLR Negro Plata",
-    precio: 685,
+    precio: 705,
     moneda: "$",
     nuevo: false,
     disc: false
@@ -566,7 +571,7 @@ const productos = [
       "resources/img/adidas/galaxy/Adidas_Galaxy_7_Marine_White_c.jpg"
     ],
     nombre: "Adidas Galaxy Azul Marino",
-    precio: 675,
+    precio: 695,
     moneda: "$",
     nuevo: true,
     disc: true
@@ -627,10 +632,11 @@ const productos = [
       "resources/img/adidas/xplr/Adidas_XPLR_Marino_c.jpg"
     ],
     nombre: "Adidas XPLR Azul Marino",
-    precio: 685,
+    precio: 705,
     moneda: "$",
     nuevo: false
   },
+  //No disponibles:__________
   {
     airfireUrl:"https://airfire.com.mx/products/tenis-retro-1-dakar-gris-verde",
     id: "Retro 1",
@@ -644,6 +650,7 @@ const productos = [
     moneda: "$",
     nuevo: false
   },
+  // _________________________
   {
     airfireUrl:"https://airfire.com.mx/products/tenis-275-negro-blanco",
     id: "275",
@@ -656,6 +663,20 @@ const productos = [
     precio: 689,
     moneda: "$",
     nuevo: false
+  },
+  {
+    airfireUrl:"https://airfire.com.mx/products/tenis-v2k-blanco-rosa-1-1-premium",
+    id: "V2K",
+    imagenes: [
+      "resources/img/nike/v2k/V2k_White_Pink.jpg",
+      "resources/img/nike/v2k/V2k_White_Pink_b.jpg",
+      "resources/img/nike/v2k/V2k_White_Pink_c.jpg",
+    ],
+    nombre: "Nike V2K Rosas Premium 1:1",
+    precio: 995,
+    moneda: "$",
+    nuevo: true,
+    disc: true
   },
   {
     airfireUrl:"https://airfire.com.mx/products/tenis-420-negro-blanco-negro",
@@ -716,7 +737,7 @@ const productos = [
     tallas: [
       { num: "23" },
       { num: "23.5" },
-      { num: "24" },
+      { num: "24", agotado: true  },
       { num: "24.5" },
       { num: "25" },
       { num: "25.5" },
@@ -757,7 +778,7 @@ const productos = [
     moneda: "$",
     nuevo: false
   },
-  // página 3:
+  //No disponibles:__________
   {
     airfireUrl:"https://airfire.com.mx/products/tenis-timberland-bota-negro-blanco",
     id: "",
@@ -768,6 +789,23 @@ const productos = [
     ],
     nombre: "Timberland Bota Negro",
     precio: 947,
+    moneda: "$",
+    nuevo: true,
+    disc: true
+  },
+  // _________________________
+    {
+    airfireUrl:"https://airfire.com.mx/products/tenis-air-force-1-blanco-rojo-1-1-premium",
+    id: "Tenis Air Force 1 Blanco Rojo 1.1 Premium",
+    imagenes: [
+      "resources/img/nike/af1/1_1/AF1_White_Red.jpg",
+      "resources/img/nike/af1/1_1/AF1_White_Red_b.jpg",
+      "resources/img/nike/af1/1_1/AF1_White_Red_c.jpg",
+      "resources/img/nike/af1/1_1/AF1_White_Red_d.jpg",
+      "resources/img/nike/af1/1_1/AF1_White_Red_e.jpg"
+    ],
+    nombre: "Nike Air Force One Rojos Premium 1:1",
+    precio: 869,
     moneda: "$",
     nuevo: true,
     disc: true
@@ -796,7 +834,7 @@ const productos = [
       "resources/img/nike/af1/AF1_White_Cian_Purple_c.jpg",
     ],
     nombre: "Nike AF1 Blaco Purpura",
-    precio: 550,
+    precio: 575,
     moneda: "$",
     nuevo: false,
     disc: true
@@ -814,7 +852,7 @@ const productos = [
       "resources/img/nike/af1/original/Nike_Air_Force_One_White_f.jpg"
     ],
     nombre: "Nike Air Force One Blanco",
-    precio: 2700,
+    precio: 2699,
     moneda: "$",
     nuevo: true,
     disc: false,
@@ -823,7 +861,7 @@ const productos = [
       { num: "24.5" },
       { num: "25" },
       { num: "25.5" },
-      { num: "26", agotado: true },
+      { num: "26", },
       { num: "26.5" },
       { num: "27" },
       { num: "27.5" },
@@ -832,22 +870,6 @@ const productos = [
       { num: "29" },
     ]
   },
-//  {
-//    id: "https://www.mercadolibre.com.mx/tenis-skechers-mujer-2110007bkpk-textil-negro/up/MLMU3809285919#polycard_client=search-desktop&search_layout=grid&position=1&type=product&tracking_id=94988087-669e-4673-ac6c-4048e174d0e6&wid=MLM4841778802&sid=search",
-//    official: true,
-//    imagenes: [
-//      "resources/img/skechers/original/Skechers_Black_Pink.jpg",
-//      "resources/img/skechers/original/Skechers_Black_Pink_b.jpg",
-//      "resources/img/skechers/original/Skechers_Black_Pink_c.jpg",
-//      "resources/img/skechers/original/Skechers_Black_Pink_d.jpg",
-//      "resources/img/skechers/original/Skechers_Black_Pink_e.jpg",
-//    ],
-//    nombre: "Skechers Negros Rosa P/Dama",
-//    precio: 1450,
-//    moneda: "$",
-//    nuevo: true,
-//    disc: true
-//  },
   {
     airfireUrl:"https://airfire.com.mx/products/tenis-275-blanco-lila",
     id: "275",
@@ -858,7 +880,7 @@ const productos = [
       "resources/img/nike/af1/AF1_White_Lila_c.jpg",
     ],
     nombre: "Nike AF1 Blaco Lila",
-    precio: 550,
+    precio: 589,
     moneda: "$",
     nuevo: false,
     disc: false
@@ -873,7 +895,7 @@ const productos = [
       "resources/img/nike/af1/AF1_Coral_c.jpg",
     ],
     nombre: "Nike AF1 Coral Lila",
-    precio: 550,
+    precio: 605,
     moneda: "$",
     nuevo: false,
     disc: false
@@ -889,19 +911,19 @@ const productos = [
       "resources/img/nike/court/original/Nike_Court_Vision_Low_e.jpg",
     ],
     nombre: "Nike Court Vision Low Blanco",
-    precio: 1599,
+    precio: 1899,
     moneda: "$",
     nuevo: true,
     disc: true,
     tallas: [
       { num: "24", agotado: true },
-      { num: "24.5", agotado: true  },
-      { num: "25", agotado: true  },
-      { num: "25.5", agotado: true  },
-      { num: "26", agotado: true  },
-      { num: "26.5", agotado: true  },
-      { num: "27", agotado: true  },
-      { num: "27.5", agotado: true },
+      { num: "24.5", },
+      { num: "25", },
+      { num: "25.5", },
+      { num: "26", },
+      { num: "26.5", },
+      { num: "27", },
+      { num: "27.5",},
       { num: "28" },
       { num: "28.5" },
       { num: "29" },
@@ -927,7 +949,25 @@ const productos = [
     tallas: [
       { num: "22.5" },
     ]
-    
+  },
+  {
+    airfireUrl:"https://airfire.com.mx/products/air-force-1-blanco-supreme-premium",
+    id: "Tenis Air Force 1 Blanco Supreme 1.1 Premium",
+    official: false,
+    imagenes: [
+      "resources/img/nike/af1/1_1/AF1_Supreme_White.jpg",
+      "resources/img/nike/af1/1_1/AF1_Supreme_White_b.jpg",
+      "resources/img/nike/af1/1_1/AF1_Supreme_White_c.jpg",
+      "resources/img/nike/af1/1_1/AF1_Supreme_White_d.jpg",
+      "resources/img/nike/af1/1_1/AF1_Supreme_White_e.jpg",
+      "resources/img/nike/af1/1_1/AF1_Supreme_White_f.jpg"
+    ],
+    nombre: "Nike Air Force One X Supreme Premium 1:1",
+    precio: 887,
+    disc: true,
+    moneda: "$",
+    nuevo: true,
+
   },
   {
     id: "https://www.mercadolibre.com.mx/tenis-unisex-vans-ua-authentic-negroblanco-para-adulto/up/MLMU3215971389?pdp_filters=item_id%3AMLM4969610248#polycard_client=bookmarks&wid=MLM4969610248&sid=bookmarks",
@@ -938,7 +978,7 @@ const productos = [
       "resources/img/vans/original/Vans_UA_Authentic_c.jpg",
     ],
     nombre: "Vans UA Authentic",
-    precio: 899,
+    precio: 973,
     moneda: "$",
     nuevo: true,
     disc: true,
@@ -947,10 +987,10 @@ const productos = [
       { num: "23" },
       { num: "23.5", agotado: true },
       { num: "24" },
-      { num: "24.5", agotado: true},
+      { num: "24.5", },
       { num: "25" },
       { num: "25.5" },
-      { num: "26", agotado: true },
+      { num: "26", },
       { num: "26.5", agotado: true },
       { num: "27" },
       { num: "27.5" },
@@ -970,10 +1010,10 @@ const productos = [
       "resources/img/flexi/piso/original/Flexi_Low_Black_e.jpg",
     ],
     nombre: "Flexi Low P/Dama",
-    precio: 783,
+    precio: 899,
     moneda: "$",
     nuevo: true,
-    disc: true,
+    disc: false,
     tallas: [
       { num: "22" },
       { num: "22.5" },
@@ -981,7 +1021,7 @@ const productos = [
       { num: "23.5" },
       { num: "24" },
       { num: "24.5" },
-      { num: "25" },
+      { num: "25", agotado: true },
       { num: "25.5" },
       { num: "26" },
     ]
